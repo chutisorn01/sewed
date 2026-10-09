@@ -1,0 +1,190 @@
+{
+  "generalInfo": {
+    "siteTitle": "วิศวกรรมซอฟต์แวร์ มหาวิทยาลัยราชภัฏศรีสะเกษ",
+    "slogan": "Build Your Future สร้างไอเดีย สร้างระบบ สร้างอนาคต",
+    "studentsCount": 180,
+    "facultyCount": 5,
+    "labCount": 4,
+    "employmentRate": "98%",
+    "phone": "045-643-600",
+    "email": "se@sskru.ac.th",
+    "facebook": "https://facebook.com/se.sskru",
+    "address": "สาขาวิชาวิศวกรรมซอฟต์แวร์ คณะศิลปศาสตร์และวิทยาศาสตร์ มหาวิทยาลัยราชภัฏศรีสะเกษ ถ.ไทยพันทา อ.เมือง จ.ศรีสะเกษ 33000"
+  },
+  "curriculum": [
+    {
+      "id": "c-1",
+      "icon": "💻",
+      "nameEn": "Programming",
+      "nameTh": "การเขียนโปรแกรม",
+      "description": "เรียนรู้ภาษา Python, JavaScript, TypeScript, C++, Java ปูพื้นฐาน Logic และ Problem Solving สู่การเป็นนักพัฒนาซอฟต์แวร์มืออาชีพ",
+      "category": "Core"
+    },
+    {
+      "id": "c-2",
+      "icon": "📐",
+      "nameEn": "Software Design",
+      "nameTh": "การออกแบบซอฟต์แวร์",
+      "description": "Design Patterns, Clean Architecture, UML, Microservices สถาปัตยกรรมซอฟต์แวร์ที่รองรับการขยายตัวระดับองค์กร",
+      "category": "Core"
+    },
+    {
+      "id": "c-3",
+      "icon": "🎨",
+      "nameEn": "UX/UI Design",
+      "nameTh": "การออกแบบประสบการณ์ผู้ใช้",
+      "description": "Design Thinking, Figma, Wireframing, Prototyping และการทำ Usability Testing เพื่อสร้างชิ้นงานที่ตอบโจทย์ผู้ใช้งานจริง",
+      "category": "Design"
+    },
+    {
+      "id": "c-4",
+      "icon": "🗄️",
+      "nameEn": "Database Systems",
+      "nameTh": "ฐานข้อมูลและคลังข้อมูล",
+      "description": "SQL (PostgreSQL, MySQL), NoSQL (MongoDB, Redis), Data Modeling, Query Optimization และการออกแบบฐานข้อมูลขนาดใหญ่",
+      "category": "Data"
+    },
+    {
+      "id": "c-5",
+      "icon": "🧠",
+      "nameEn": "AI & Machine Learning",
+      "nameTh": "ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
+      "description": "Machine Learning, Deep Learning, Computer Vision, NLP และการนำ AI / LLM มาประยุกต์ใช้ในแอปพลิเคชันยุคใหม่",
+      "category": "Advanced"
+    },
+    {
+      "id": "c-6",
+      "icon": "📱",
+      "nameEn": "Web & Mobile Development",
+      "nameTh": "การพัฒนาเว็บและแอปพลิเคชันมือถือ",
+      "description": "Modern Frontend (React, Vue), Backend (Node.js, Go), Cross-platform Mobile (Flutter, React Native)",
+      "category": "Application"
+    },
+    {
+      "id": "c-7",
+      "icon": "🛡️",
+      "nameEn": "Software Testing & QA",
+      "nameTh": "การทดสอบและประกันคุณภาพซอฟต์แวร์",
+      "description": "Unit Testing, Integration Testing, Automated E2E (Playwright, Cypress), CI/CD pipelines และมาตรฐานคุณภาพสากล",
+      "category": "Quality"
+    },
+    {
+      "id": "c-8",
+      "icon": "⚙️",
+      "nameEn": "Cloud & DevOps",
+      "nameTh": "การพัฒนาระบบคลาวด์และเดฟออปส์",
+      "description": "Docker, Kubernetes, AWS, Google Cloud, CI/CD, Infrastructure as Code และการดูแลรักษาระบบ Production 24/7",
+      "category": "System"
+    }
+  ],
+  "faculty": [
+    {
+      "id": "f-1",
+      "name": "ผศ.ดร.รณชัย เจริญศิลป์",
+      "role": "หัวหน้าสาขาวิชาวิศวกรรมซอฟต์แวร์",
+      "specialty": "Software Architecture & Distributed Systems",
+      "image": "/images/prof_sskr_1.jpg",
+      "email": "ronnachai.c@sskru.ac.th"
+    },
+    {
+      "id": "f-2",
+      "name": "ผศ.ดร.กิตติพงศ์ บุญมา",
+      "role": "อาจารย์ประจำสาขาวิชา",
+      "specialty": "AI & Machine Learning / Data Science",
+      "image": "/images/prof_sskr_2.jpg",
+      "email": "kittipong.b@sskru.ac.th"
+    },
+    {
+      "id": "f-3",
+      "name": "อ.ดร.ปิยวดี แสนคำ",
+      "role": "อาจารย์ประจำสาขาวิชา",
+      "specialty": "Web & Mobile Application / UX/UI",
+      "image": "/images/prof_sskr_3.jpg",
+      "email": "piyawadee.s@sskru.ac.th"
+    },
+    {
+      "id": "f-4",
+      "name": "ผศ.ดร.สุรศักดิ์ ภูมิพงศ์",
+      "role": "อาจารย์ประจำสาขาวิชา",
+      "specialty": "Database Systems & Cloud Infrastructure",
+      "image": "/images/prof_sskr_4.jpg",
+      "email": "surasak.p@sskru.ac.th"
+    },
+    {
+      "id": "f-5",
+      "name": "อ.ดร.นพดล ไชยศรี",
+      "role": "อาจารย์ประจำสาขาวิชา",
+      "specialty": "Software Testing & Quality Assurance",
+      "image": "/images/prof_sskr_5.jpg",
+      "email": "noppadol.c@sskru.ac.th"
+    }
+  ],
+  "announcements": [
+    {
+      "id": "a-1",
+      "title": "เปิดรับสมัครนักศึกษาใหม่ ประจำปีการศึกษา 2569 (รอบ Portfolio & โควตา)",
+      "content": "สาขาวิชาวิศวกรรมซอฟต์แวร์ มหาวิทยาลัยราชภัฏศรีสะเกษ เปิดรับสมัครผู้สำเร็จการศึกษาระดับ ม.6 / ปวช. หรือเทียบเท่า เข้าศึกษาต่อในหลักสูตรวิทยาศาสตรบัณฑิต (วท.บ. วิศวกรรมซอฟต์แวร์) สมัครได้ตั้งแต่วันนี้ผ่านระบบออนไลน์",
+      "date": "2026-10-01",
+      "tag": "รับสมัคร",
+      "pinned": true
+    },
+    {
+      "id": "a-2",
+      "title": "ขอแสดงความยินดีกับทีม SE-SSKRU คว้ารางวัลชนะเลิศการประกวดนวัตกรรมซอฟต์แวร์",
+      "content": "ทีมนักศึกษาวิศวกรรมซอฟต์แวร์ ชั้นปีที่ 3 และ 4 ได้รับรางวัลนวัตกรรมดีเด่นจากการแข่งขันประชันทักษะเทคโนโลยีดิจิทัลระดับภูมิภาค ด้วยผลงานระบบ AI Smart Farming",
+      "date": "2026-09-25",
+      "tag": "ผลงานนักศึกษา",
+      "pinned": false
+    },
+    {
+      "id": "a-3",
+      "title": "กิจกรรม Workshop: เจาะลึก Generative AI & Cloud Native Architecture",
+      "content": "ขอเชิญชวนนักศึกษาและผู้สนใจเข้าร่วมสัมมนาเชิงปฏิบัติการจากวิทยากรพิเศษผู้เชี่ยวชาญจากบริษัทเทคโนโลยีชั้นนำ ในวันที่ 15 ตุลาคม 2569 ณ ห้องปฏิบัติการคอมพิวเตอร์ SE Lab 1",
+      "date": "2026-09-18",
+      "tag": "กิจกรรม",
+      "pinned": false
+    }
+  ],
+  "applications": [
+    {
+      "id": "app-1001",
+      "name": "นายกิตติศักดิ์ พัฒนกุล",
+      "phone": "081-234-5678",
+      "email": "kittisak.p@gmail.com",
+      "school": "โรงเรียนศรีสะเกษวิทยาลัย (วิทย์-คณิต)",
+      "status": "รอการตรวจสอบ",
+      "createdAt": "2026-10-04 10:30:00"
+    },
+    {
+      "id": "app-1002",
+      "name": "นางสาววิภาดา รุ่งเรือง",
+      "phone": "089-876-5432",
+      "email": "wiphada.r@gmail.com",
+      "school": "โรงเรียนสตรีสิริเกศ (ศิลป์-คำนวณ)",
+      "status": "ตรวจสอบแล้ว",
+      "createdAt": "2026-10-04 14:15:00"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "cnt-1",
+      "name": "ผู้ปกครองนักเรียน ม.6",
+      "email": "parent@example.com",
+      "subject": "สอบถามเรื่องค่าเทอมและทุนการศึกษา",
+      "message": "อยากทราบรายละเอียดเรื่องทุนการศึกษาของสาขาวิศวกรรมซอฟต์แวร์ และกำหนดการรายงานตัวครับ",
+      "status": "ตอบกลับแล้ว",
+      "createdAt": "2026-10-03 16:40:00"
+    }
+  ],
+  "admins": [
+    {
+      "id": "admin-1",
+      "username": "admin",
+      "password": "3a6d17fa999e2f7369c7ddde83370f16:2c575e83736491a14cfe550530c05c5c53deffe605dc5b685db28837b743d1ab5c9a63bc63a5f187eb862d0c6df18441c288088a81caceb788460af13310e4ca",
+      "name": "ผู้ดูแลระบบ SSKRU",
+      "role": "Super Admin",
+      "email": "admin@sskru.ac.th",
+      "createdAt": "2026-10-09"
+    }
+  ]
+}

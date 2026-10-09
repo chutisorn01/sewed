@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบจัดการข้อมูล (Admin Dashboard) | SSKRU Software Engineering</title>
+  
+  <!-- Fonts: Kanit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+
+  <!-- ==============================================
+       VIEW 1: ADMIN LOGIN SCREEN (MINIMALIST WHITE)
+       ============================================== -->
+  <div id="admin-login-view" class="login-wrapper">
+    <div class="login-card">
+      <div class="login-brand-logo">
+        <img src="/images/golden_gear.jpg" alt="SSKRU SE Logo">
+      </div>
+      <h1 class="login-title">เข้าสู่ระบบผู้ดูแลระบบ</h1>
+      <p class="login-subtitle">ระบบจัดการเนื้อหา สาขาวิชาวิศวกรรมซอฟต์แวร์ มรภ.ศรีสะเกษ</p>
+
+      <div id="login-alert" class="alert-message alert-error"></div>
+
+      <form id="form-login" onsubmit="return false;">
+        <div class="form-group">
+          <label class="form-label" for="login-username">ชื่อผู้ใช้ (Username)</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">👤</span>
+            <input type="text" id="login-username" class="form-control" placeholder="กรอกชื่อผู้ใช้..." required autocomplete="username">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">รหัสผ่าน (Password)</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="login-password" class="form-control" placeholder="กรอกรหัสผ่าน..." required autocomplete="current-password">
+            <button type="button" id="btn-toggle-pwd" class="btn-eye-toggle" title="แสดง/ซ่อนรหัสผ่าน">👁️</button>
+          </div>
+        </div>
+
+        <button type="button" id="btn-login-submit" class="btn-primary-full">
+          <span>เข้าสู่ระบบ (Sign In)</span>
+          <span>→</span>
+        </button>
+      </form>
+
+      <a href="/" class="login-back-link">← กลับไปยังหน้าเว็บไซต์หลัก</a>
+    </div>
+  </div>
+
+  <!-- ==============================================
+       VIEW 2: ADMIN DASHBOARD (CLEAN WHITE WORKSPACE)
+       ============================================== -->
+  <div id="admin-dashboard-view" class="admin-layout" style="display: none;">
+    <!-- TOP NAVBAR -->
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <a href="/" class="topbar-brand" title="กลับสู่หน้าเว็บไซต์หลัก">
+          <div class="topbar-logo">
+            <img src="/images/golden_gear.jpg" alt="SE Golden Gear">
+          </div>
+          <div>
+            <div class="topbar-title">SSKRU // SOFTWARE ENGINEERING</div>
+            <div class="topbar-subtitle">ระบบบริหารจัดการข้อมูลหลังบ้าน (Admin CMS)</div>
+          </div>
+        </a>
+        <div class="status-pill-online">
+          <span class="status-dot-green"></span>
+          <span>REST API ONLINE</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <a href="/" class="btn-view-site" target="_blank" title="เปิดหน้าเว็บไซต์ในแท็บใหม่">
+          <span>🌐 ดูหน้าเว็บจริง</span>
+        </a>
+        <div class="admin-profile-badge">
+          <span>👤</span>
+          <span id="label-admin-name">Super Admin</span>
+        </div>
+        <button id="btn-logout" class="btn-outline-danger" title="ออกจากระบบ">
+          <span>🚪 ออกจากระบบ</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- BODY CONTAINER: SIDEBAR + MAIN WORKSPACE -->
+    <div class="admin-body-container">
+      <!-- SIDEBAR -->
+      <aside class="admin-sidebar">
+        <span class="sidebar-category-label">เมนูจัดการข้อมูล</span>
+        
+        <div class="sidebar-item active" data-tab="curriculum">
+          <div class="sidebar-item-left">
+            <span class="sidebar-icon">🎓</span>
+            <span>หลักสูตร</span>
+          </div>
+          <span class="sidebar-badge" id="badge-count-curri">0</span>
+        </div>
+
+        <div class="sidebar-item" data-tab="faculty">
+          <div class="sidebar-item-left">
+            <span class="sidebar-icon">👨‍🏫</span>
+            <span>คณาจารย์</span>
+          </div>
+          <span class="sidebar-badge" id="badge-count-faculty">0</span>
+        </div>
+
+        <div class="sidebar-item" data-tab="news">
+          <div class="sidebar-item-left">
+            <span class="sidebar-icon">📢</span>
+            <span>ข่าวสาร &amp; กิจกรรม</span>
+          </div>
+          <span class="sidebar-badge" id="badge-count-news">0</span>
+        </div>
+
+        <div class="sidebar-item" data-tab="applications">
+          <div class="sidebar-item-left">
+            <span class="sidebar-icon">📋</span>
+            <span>ผู้สมัครเรียน</span>
+          </div>
+          <span class="sidebar-badge" id="badge-count-apps">0</span>
+        </div>
+
+        <div class="sidebar-item" data-tab="contacts">
+          <div class="sidebar-item-left">
+            <span class="sidebar-icon">✉️</span>
+            <span>ข้อความติดต่อ</span>
+          </div>
+          <span class="sidebar-badge" id="badge-count-contacts">0</span>
+        </div>
+
+        <span class="sidebar-category-label" style="margin-top: 1rem;">การตั้งค่าระบบ</span>
+
+        <div class="sidebar-item" data-tab="general">
+          <div class="sidebar-item-left">
+            <span class="sidebar-icon">🏢</span>
+            <span>ข้อมูลทั่วไป &amp; สถิติ</span>
+          </div>
+        </div>
+
+        <div class="sidebar-item" data-tab="security">
+          <div class="sidebar-item-left">
+            <span class="sidebar-icon">🔒</span>
+            <span>บัญชี &amp; รหัสผ่าน</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT WORKSPACE -->
+      <main class="admin-main">
+
+        <!-- ==============================================
+             PANEL 1: CURRICULUM (หลักสูตร)
+             ============================================== -->
+        <section id="panel-curriculum" class="tab-content-panel active">
+          <div class="page-header">
+            <h2 class="page-title">🎓 จัดการหลักสูตรรายวิชา (Curriculum Management)</h2>
+            <p class="page-subtitle">เพิ่ม ลบ และแก้ไขรายวิชาที่แสดงในหน้าเว็บไซต์ scrollytelling</p>
+          </div>
+
+          <!-- Add Course Card -->
+          <div class="card-white">
+            <h3 class="card-title">+ เพิ่มรายวิชาใหม่ในหลักสูตร</h3>
+            <form id="form-add-curri" class="form-grid-3">
+              <div class="form-group">
+                <label class="form-label">ไอคอน (Emoji)</label>
+                <input type="text" id="input-curri-icon" class="form-control no-icon" value="💻" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">หมวดหมู่วิชา</label>
+                <select id="input-curri-cat" class="form-select">
+                  <option value="Core">Core (วิชาแกนหลัก)</option>
+                  <option value="Design">Design (ออกแบบซอฟต์แวร์)</option>
+                  <option value="Data">Data (ข้อมูลและฐานข้อมูล)</option>
+                  <option value="Advanced">Advanced (ขั้นสูง / AI)</option>
+                  <option value="Application">Application (เว็บและโมบายล์)</option>
+                  <option value="Quality">Quality (ทดสอบและ QA)</option>
+                  <option value="System">System (คลาวด์และระบบ)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">ชื่อภาษาอังกฤษ</label>
+                <input type="text" id="input-curri-nameEn" class="form-control no-icon" placeholder="e.g. Cloud Computing" required>
+              </div>
+              <div class="form-group span-2">
+                <label class="form-label">ชื่อภาษาไทย</label>
+                <input type="text" id="input-curri-nameTh" class="form-control no-icon" placeholder="e.g. การประมวลผลแบบคลาวด์" required>
+              </div>
+              <div class="form-group span-full">
+                <label class="form-label">คำอธิบายรายวิชา</label>
+                <textarea id="input-curri-desc" class="form-textarea" rows="2" placeholder="รายละเอียดเนื้อหาวิชาที่จะได้เรียน..."></textarea>
+              </div>
+              <div class="span-full" style="display: flex; justify-content: flex-end;">
+                <button type="submit" class="btn-submit-action">+ บันทึกรายวิชาใหม่</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Table Card -->
+          <div class="card-white">
+            <div class="table-toolbar">
+              <div class="search-input-wrap">
+                <span class="search-icon-pos">🔍</span>
+                <input type="text" id="search-curri" class="search-input" placeholder="ค้นหารายวิชา...">
+              </div>
+              <span class="text-muted" id="count-label-curri">ทั้งหมด 0 วิชา</span>
+            </div>
+
+            <div class="table-container">
+              <table class="minimal-table">
+                <thead>
+                  <tr>
+                    <th style="width: 50px;">#</th>
+                    <th style="width: 60px; text-align: center;">ไอคอน</th>
+                    <th>ชื่อรายวิชา (EN / TH)</th>
+                    <th>หมวดหมู่</th>
+                    <th>คำอธิบาย</th>
+                    <th style="width: 130px; text-align: center;">จัดการ</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-curri"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==============================================
+             PANEL 2: FACULTY (คณาจารย์)
+             ============================================== -->
+        <section id="panel-faculty" class="tab-content-panel">
+          <div class="page-header">
+            <h2 class="page-title">👨‍🏫 จัดการข้อมูลอาจารย์ผู้สอน (Faculty Management)</h2>
+            <p class="page-subtitle">จัดการประวัติ รายชื่อ ตำแหน่ง และความเชี่ยวชาญของอาจารย์ประจำสาขา</p>
+          </div>
+
+          <!-- Add Faculty Card -->
+          <div class="card-white">
+            <h3 class="card-title">+ เพิ่มข้อมูลอาจารย์ท่านใหม่</h3>
+            <form id="form-add-faculty" class="form-grid-3">
+              <div class="form-group">
+                <label class="form-label">ชื่อ - นามสกุล (พร้อมคำนำหน้า)</label>
+                <input type="text" id="input-fac-name" class="form-control no-icon" placeholder="ผศ.ดร.สมชาย ใจดี" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">ตำแหน่ง</label>
+                <input type="text" id="input-fac-role" class="form-control no-icon" placeholder="อาจารย์ประจำสาขาวิชา" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">ความเชี่ยวชาญ (Specialty)</label>
+                <input type="text" id="input-fac-specialty" class="form-control no-icon" placeholder="AI, Cloud Architecture" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">อีเมลติดต่อ</label>
+                <input type="email" id="input-fac-email" class="form-control no-icon" placeholder="teacher@sskru.ac.th">
+              </div>
+              <div class="form-group span-2">
+                <label class="form-label">ลิงก์รูปภาพ (URL หรือ /images/...)</label>
+                <input type="text" id="input-fac-image" class="form-control no-icon" value="/images/prof_sskr_1.jpg">
+              </div>
+              <div class="span-full" style="display: flex; justify-content: flex-end;">
+                <button type="submit" class="btn-submit-action">+ บันทึกข้อมูลอาจารย์</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Faculty Table Card -->
+          <div class="card-white">
+            <div class="table-toolbar">
+              <div class="search-input-wrap">
+                <span class="search-icon-pos">🔍</span>
+                <input type="text" id="search-faculty" class="search-input" placeholder="ค้นหาชื่ออาจารย์...">
+              </div>
+              <span class="text-muted" id="count-label-faculty">ทั้งหมด 0 ท่าน</span>
+            </div>
+
+            <div class="table-container">
+              <table class="minimal-table">
+                <thead>
+                  <tr>
+                    <th style="width: 50px;">#</th>
+                    <th style="width: 65px; text-align: center;">รูปภาพ</th>
+                    <th>ชื่อ - นามสกุล</th>
+                    <th>ตำแหน่ง</th>
+                    <th>ความเชี่ยวชาญ</th>
+                    <th>อีเมล</th>
+                    <th style="width: 130px; text-align: center;">จัดการ</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-faculty"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==============================================
+             PANEL 3: NEWS & ANNOUNCEMENTS (ข่าวสาร)
+             ============================================== -->
+        <section id="panel-news" class="tab-content-panel">
+          <div class="page-header">
+            <h2 class="page-title">📢 จัดการข่าวสารและกิจกรรม (News &amp; Events)</h2>
+            <p class="page-subtitle">เผยแพร่ข่าวประชาสัมพันธ์ ผลงานนักศึกษา และกิจกรรมของสาขาวิชา</p>
+          </div>
+
+          <!-- Add News Card -->
+          <div class="card-white">
+            <h3 class="card-title">+ โพสต์ข่าวสาร / กิจกรรมใหม่</h3>
+            <form id="form-add-news" class="form-grid-2">
+              <div class="form-group span-2">
+                <label class="form-label">หัวข้อข่าว / กิจกรรม</label>
+                <input type="text" id="input-news-title" class="form-control no-icon" placeholder="ประกาศรับสมัคร หรือข่าวกิจกรรมสาขา..." required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">ป้ายกำกับ (Tag)</label>
+                <input type="text" id="input-news-tag" class="form-control no-icon" placeholder="เช่น รับสมัคร, กิจกรรม, ผลงาน">
+              </div>
+              <div class="form-group" style="display: flex; align-items: center; gap: 0.5rem; padding-top: 1.5rem;">
+                <input type="checkbox" id="input-news-pinned" style="width: 20px; height: 20px; accent-color: var(--primary);">
+                <label for="input-news-pinned" style="margin: 0; font-weight: 600; cursor: pointer;">⭐ ปักหมุดข่าวนี้ไว้ด้านบน</label>
+              </div>
+              <div class="form-group span-2">
+                <label class="form-label">เนื้อหาข่าว / รายละเอียด</label>
+                <textarea id="input-news-content" class="form-textarea" rows="3" placeholder="กรอกรายละเอียดข่าวสาร..." required></textarea>
+              </div>
+              <div class="span-2" style="display: flex; justify-content: flex-end;">
+                <button type="submit" class="btn-submit-action">+ เผยแพร่ข่าวสาร</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- News Table Card -->
+          <div class="card-white">
+            <div class="table-toolbar">
+              <div class="search-input-wrap">
+                <span class="search-icon-pos">🔍</span>
+                <input type="text" id="search-news" class="search-input" placeholder="ค้นหาหัวข้อข่าว...">
+              </div>
+              <span class="text-muted" id="count-label-news">ทั้งหมด 0 รายการ</span>
+            </div>
+
+            <div class="table-container">
+              <table class="minimal-table">
+                <thead>
+                  <tr>
+                    <th style="width: 50px;">#</th>
+                    <th>หัวข้อข่าว</th>
+                    <th>หมวดหมู่</th>
+                    <th>วันที่เผยแพร่</th>
+                    <th style="width: 130px; text-align: center;">จัดการ</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-news"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==============================================
+             PANEL 4: APPLICATIONS (ผู้สมัครเรียน)
+             ============================================== -->
+        <section id="panel-applications" class="tab-content-panel">
+          <div class="page-header">
+            <h2 class="page-title">📋 รายชื่อผู้สมัครเรียน (Student Applications)</h2>
+            <p class="page-subtitle">ตรวจสอบและอัปเดตสถานะของผู้สมัครที่ส่งข้อมูลผ่านหน้าเว็บไซต์</p>
+          </div>
+
+          <div class="card-white">
+            <div class="table-toolbar">
+              <div class="search-input-wrap">
+                <span class="search-icon-pos">🔍</span>
+                <input type="text" id="search-apps" class="search-input" placeholder="ค้นหาชื่อ, เบอร์โทร, โรงเรียน...">
+              </div>
+              <div style="display: flex; gap: 0.75rem; align-items: center;">
+                <span class="text-muted" id="count-label-apps">0 คน</span>
+                <button id="btn-export-csv" class="btn-view-site">📥 ส่งออก Excel / CSV</button>
+              </div>
+            </div>
+
+            <div class="table-container">
+              <table class="minimal-table">
+                <thead>
+                  <tr>
+                    <th style="width: 50px;">#</th>
+                    <th>ชื่อ - นามสกุล</th>
+                    <th>เบอร์โทร</th>
+                    <th>อีเมล</th>
+                    <th>โรงเรียน / วุฒิการศึกษา</th>
+                    <th>สถานะใบสมัคร (Update)</th>
+                    <th>วันที่สมัคร</th>
+                    <th style="width: 60px; text-align: center;">ลบ</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-apps"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==============================================
+             PANEL 5: CONTACTS (ข้อความติดต่อ)
+             ============================================== -->
+        <section id="panel-contacts" class="tab-content-panel">
+          <div class="page-header">
+            <h2 class="page-title">✉️ กล่องข้อความติดต่อ (Contact Messages)</h2>
+            <p class="page-subtitle">ข้อความสอบถามข้อมูลจากผู้เยี่ยมชมเว็บไซต์และผู้ปกครอง</p>
+          </div>
+
+          <div class="card-white">
+            <div class="table-toolbar">
+              <div class="search-input-wrap">
+                <span class="search-icon-pos">🔍</span>
+                <input type="text" id="search-contacts" class="search-input" placeholder="ค้นหาชื่อผู้ติดต่อ, เรื่อง...">
+              </div>
+              <span class="text-muted" id="count-label-contacts">0 ข้อความ</span>
+            </div>
+
+            <div class="table-container">
+              <table class="minimal-table">
+                <thead>
+                  <tr>
+                    <th style="width: 50px;">#</th>
+                    <th>ผู้ติดต่อ</th>
+                    <th>อีเมล</th>
+                    <th>หัวข้อเรื่อง</th>
+                    <th>ข้อความ</th>
+                    <th>สถานะ (Update)</th>
+                    <th>วันที่ส่ง</th>
+                    <th style="width: 60px; text-align: center;">ลบ</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-contacts"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==============================================
+             PANEL 6: GENERAL INFO & STATS (ข้อมูลทั่วไป)
+             ============================================== -->
+        <section id="panel-general" class="tab-content-panel">
+          <div class="page-header">
+            <h2 class="page-title">🏢 ข้อมูลส่วนรวมสาขาวิชา &amp; สถิติ (General Info &amp; Stats)</h2>
+            <p class="page-subtitle">แก้ไขตัวเลขสถิติความสำเร็จ และช่องทางติดต่อหลักของสาขาวิชา</p>
+          </div>
+
+          <div class="card-white" style="max-width: 850px;">
+            <h3 class="card-title">แก้ไขข้อมูลและตัวเลขสถิติบนหน้าเว็บ</h3>
+            <form id="form-general" class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">จำนวนนักศึกษาปัจจุบัน (คน)</label>
+                <input type="number" id="gen-students" class="form-control no-icon" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">จำนวนอาจารย์ประจำ (ท่าน)</label>
+                <input type="number" id="gen-faculty" class="form-control no-icon" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">จำนวนห้องปฏิบัติการคอมพิวเตอร์ (ห้อง)</label>
+                <input type="number" id="gen-labs" class="form-control no-icon" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">อัตราการได้งานทำของบัณฑิต (%)</label>
+                <input type="text" id="gen-rate" class="form-control no-icon" placeholder="98%" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">เบอร์โทรศัพท์ติดต่อสาขา</label>
+                <input type="text" id="gen-phone" class="form-control no-icon">
+              </div>
+              <div class="form-group">
+                <label class="form-label">อีเมลสาขาวิชา</label>
+                <input type="email" id="gen-email" class="form-control no-icon">
+              </div>
+              <div class="form-group span-2">
+                <label class="form-label">ลิงก์ Facebook Page สาขา</label>
+                <input type="text" id="gen-fb" class="form-control no-icon">
+              </div>
+              <div class="form-group span-2">
+                <label class="form-label">สโลแกนสาขา</label>
+                <input type="text" id="gen-slogan" class="form-control no-icon" placeholder="Build Your Future สร้างไอเดีย สร้างระบบ สร้างอนาคต">
+              </div>
+              <div class="span-2" style="display: flex; justify-content: flex-end; margin-top: 0.5rem;">
+                <button type="submit" class="btn-submit-action">💾 บันทึกข้อมูลส่วนรวม</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- ==============================================
+             PANEL 7: SECURITY & PASSWORD (ความปลอดภัย)
+             ============================================== -->
+        <section id="panel-security" class="tab-content-panel">
+          <div class="page-header">
+            <h2 class="page-title">🔒 บัญชีและความปลอดภัย (Account &amp; Security)</h2>
+            <p class="page-subtitle">เปลี่ยนรหัสผ่านเพื่อความปลอดภัยในการเข้าถึงระบบจัดการข้อมูล</p>
+          </div>
+
+          <div class="card-white" style="max-width: 550px;">
+            <h3 class="card-title">เปลี่ยนรหัสผ่านแอดมินใหม่</h3>
+            <form id="form-pwd">
+              <div class="form-group">
+                <label class="form-label">รหัสผ่านปัจจุบัน</label>
+                <input type="password" id="pwd-curr" class="form-control no-icon" required placeholder="กรอกรหัสผ่านเดิม">
+              </div>
+              <div class="form-group">
+                <label class="form-label">รหัสผ่านใหม่ (อย่างน้อย 4 ตัวอักษร)</label>
+                <input type="password" id="pwd-new" class="form-control no-icon" required placeholder="กรอกรหัสผ่านใหม่">
+              </div>
+              <div class="form-group">
+                <label class="form-label">ยืนยันรหัสผ่านใหม่อีกครั้ง</label>
+                <input type="password" id="pwd-conf" class="form-control no-icon" required placeholder="ยืนยันรหัสผ่านใหม่">
+              </div>
+              <button type="submit" class="btn-submit-action" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
+                <span>💾 ยืนยันเปลี่ยนรหัสผ่าน</span>
+              </button>
+            </form>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ==============================================
+       UNIVERSAL EDIT MODAL (CLEAN WHITE)
+       ============================================== -->
+  <div id="modal-edit" class="admin-modal-backdrop">
+    <div class="admin-modal-card">
+      <div class="admin-modal-header">
+        <h3 id="modal-edit-title" class="admin-modal-title">✏️ แก้ไขข้อมูล</h3>
+        <button id="btn-close-edit-modal" class="admin-modal-close">&times;</button>
+      </div>
+      <form id="form-edit-item">
+        <input type="hidden" id="edit-type">
+        <input type="hidden" id="edit-id">
+        <div id="edit-inputs-container">
+          <!-- Populated dynamically via JS -->
+        </div>
+        <div class="admin-modal-footer">
+          <button type="button" id="btn-cancel-edit-modal" class="btn-secondary">ยกเลิก</button>
+          <button type="submit" class="btn-submit-action">💾 บันทึกการแก้ไข</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FLOATING TOAST -->
+  <div id="admin-toast" class="admin-toast">
+    <span id="toast-icon">✓</span>
+    <span id="toast-text">สำเร็จ</span>
+  </div>
+
+  <script type="module" src="./src/admin.js"></script>
+</body>
+</html>

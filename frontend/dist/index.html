@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>วิศวกรรมซอฟต์แวร์ | มหาวิทยาลัยราชภัฏศรีสะเกษ (Software Engineering - SSKRU)</title>
+  <meta name="description" content="สาขาวิชาวิศวกรรมซอฟต์แวร์ คณะศิลปศาสตร์และวิทยาศาสตร์ มหาวิทยาลัยราชภัฏศรีสะเกษ - Build Your Future สร้างไอเดีย สร้างระบบ สร้างอนาคต">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/assets/main-DUDngzha.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-P2Xu9kJm.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-xxVHXa2B.css">
+</head>
+<body>
+  <!-- Reading Progress Bar -->
+  <div class="scroll-progress-bar" id="scroll-progress"></div>
+
+  <!-- Header / Navbar -->
+  <!-- Header / Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#video-track" class="nav-brand" id="brand-link">
+        <div class="brand-logo-gear">
+          <img src="/images/golden_gear.jpg" alt="SE Golden Gear" class="mini-gear-img">
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">SSKRU <span class="brand-highlight">// SE</span></span>
+          <span class="brand-sub">SOFTWARE ENGINEERING</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#video-track" class="nav-link active">การเดินทาง</a>
+        <a href="#scene-space" class="nav-link">สู่อวกาศ</a>
+        <a href="#scene-6" class="nav-link">หลักสูตร</a>
+        <a href="#scene-7" class="nav-link">คณาจารย์</a>
+        <a href="#scene-news" class="nav-link">ข่าวสาร</a>
+        <a href="#scene-8" class="nav-link">วิทยาเขต</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="video-status-indicator" id="video-status" title="สถานะการเดินทางแบบเรียลไทม์">
+          <span class="dot-live"></span>
+          <span class="time-label">0.0s / 14.0s</span>
+        </div>
+        <button id="sound-btn" class="icon-btn" aria-label="Toggle Sound" title="เปิด/ปิด เสียงบรรยากาศ">
+          <span class="sound-wave"></span>
+          <span class="sound-wave"></span>
+          <span class="sound-wave"></span>
+        </button>
+        <a href="/admin.html" id="btn-admin-cms" class="btn btn-outline-neon-red btn-sm nav-btn-cms" title="เข้าสู่ระบบจัดการเนื้อหา CMS (หน้าผู้ดูแลระบบ)">
+          <span class="cms-icon">⚙️</span>
+          <span class="cms-text">CMS</span>
+        </a>
+        <button id="btn-open-apply" class="btn btn-neon-red nav-btn-apply">
+          <span class="apply-pulse-dot"></span>
+          <span>สมัครเรียน</span>
+        </button>
+        <button id="btn-mobile-nav" class="mobile-nav-toggle" aria-label="เปิดเมนูนำทาง" aria-expanded="false">
+          <span class="nav-bar"></span>
+          <span class="nav-bar"></span>
+          <span class="nav-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN SCROLLYTELLING CONTAINER -->
+  <main id="app">
+
+    <!-- ==============================================
+         SCENE 1 & 2: SCROLL-DRIVEN VIDEO SCRUBBING TRACK
+         (ใช้วิดีโอจริง Scroll.mp4 ของผู้ใช้: ซีน 1 ➔ ซีน 2)
+         ============================================== -->
+    <section id="video-track" class="video-scrolly-track">
+      <!-- Sticky Window pinned for 300vh of scroll -->
+      <div class="video-sticky-viewport">
+        <!-- The user actual MP4 video -->
+        <video 
+          id="scrolly-video" 
+          src="/videos/Scroll.mp4" 
+          playsinline 
+          muted 
+          preload="auto" 
+          class="scrolly-video-player"
+        ></video>
+
+        <!-- Dark Gradient Vignette for text readability -->
+        <div class="video-vignette-overlay"></div>
+
+        <!-- Floating Scrubbing Helper HUD -->
+        <div class="scrubbing-hud">
+          <div class="hud-pill">
+            <span class="hud-icon">🎬</span>
+            <span id="hud-stage-name">STAGE 01: จุดเริ่มต้น (นักศึกษา + เฟือง)</span>
+            <span class="hud-progress-val" id="hud-pct">0%</span>
+          </div>
+        </div>
+
+        <!-- OVERLAY 1: SCENE 1 (THE GENESIS / นักศึกษา + เฟือง) -->
+        <div class="video-text-overlay overlay-scene-1 active" id="overlay-1">
+          <div class="container hero-layout-overlay">
+            <div class="hero-text-col">
+              <div class="hud-stage-badge cyber-yellow"><span class="pulse-dot dot-yellow"></span> STAGE 01 // จุดเริ่มต้น (THE GENESIS &amp; GEARS)</div>
+              <div class="hero-uni-tag">SISAKET RAJABHAT UNIVERSITY</div>
+              <h1 class="hero-main-title">
+                SOFTWARE<br>
+                <span class="text-cyber-yellow">ENGINEERING</span>
+              </h1>
+              <div class="hero-slogan-cursive">Build Your Future</div>
+              <p class="hero-desc">
+                <strong>วิศวกรรมซอฟต์แวร์ มหาวิทยาลัยราชภัฏศรีสะเกษ</strong><br>
+                ก้าวแรกของนักศึกษาสู่อาณาจักรเทคโนโลยี โดยมี <strong>"เฟืองจักรกล"</strong> เป็นสัญลักษณ์ของการเริ่มต้นสร้างระบบ<br>
+                <span class="hero-story-hint">⚙️ เฟืองด้านหลังเริ่มหมุน → หมุนเร็วขึ้น → กล้องพุ่งทะลุสู่วงแหวนเครื่องจักร</span>
+              </p>
+
+              <div class="hero-cta-group">
+                <button class="btn btn-gold btn-lg btn-scroll-to" data-target="#scene-6">
+                  <span>สำรวจการเดินทาง</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <button class="btn btn-outline-gold btn-lg btn-scroll-to" data-target="#scene-6">
+                  <span>ดูหลักสูตร</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Scroll Driving Cue (คำอธิบายและตัวนำทางให้เลื่อนชัดเจน) -->
+          <div class="scroll-drive-guide">
+            <div class="drive-pulse-circle">
+              <span class="gear-spin-icon">⚙️</span>
+            </div>
+            <div class="guide-text-wrap">
+              <span class="guide-title">SCROLL TO DRIVE // หมุนฟันเฟือง</span>
+              <span class="guide-sub">เลื่อนเมาส์ลง เพื่อเริ่มหมุนเฟืองและขับเคลื่อนสู่ระบบจริง</span>
+            </div>
+            <div class="scroll-mouse-icon">
+              <div class="mouse-wheel"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- OVERLAY 2: SCENE 2 (WE BUILD IT / ประกอบชิ้นส่วน ROBOT) -->
+        <div class="video-text-overlay overlay-scene-2" id="overlay-2">
+          <div class="container build-split-layout">
+            <div class="build-text-col" id="build-text-col">
+              <div class="build-tagline neon-red"><span class="pulse-dot dot-red"></span> STAGE 02 // CREATION &amp; ASSEMBLY</div>
+              <h2 class="build-headline">WE DON'T JUST USE TECHNOLOGY.<br><span class="text-neon-red">WE BUILD IT.</span></h2>
+              <p class="build-sub">ไม่ได้แค่ใช้เทคโนโลยี แต่เราสร้างมันขึ้นมา</p>
+            </div>
+
+            <div class="build-list-col" id="build-list-col">
+              <div class="tech-stack-vertical">
+                <div class="tech-item-row neon-red" data-index="0">
+                  <span class="tech-dot-red"></span>
+                  <span class="tech-title-en">HARDWARE</span>
+                  <span class="tech-arrow-red">›</span>
+                </div>
+                <div class="tech-item-row neon-red" data-index="1">
+                  <span class="tech-dot-red"></span>
+                  <span class="tech-title-en">SOFTWARE</span>
+                  <span class="tech-arrow-red">›</span>
+                </div>
+                <div class="tech-item-row neon-red" data-index="2">
+                  <span class="tech-dot-red"></span>
+                  <span class="tech-title-en">NETWORK</span>
+                  <span class="tech-arrow-red">›</span>
+                </div>
+                <div class="tech-item-row neon-red" data-index="3">
+                  <span class="tech-dot-red"></span>
+                  <span class="tech-title-en">ROBOTICS &amp; AI</span>
+                  <span class="tech-arrow-red">›</span>
+                </div>
+                <div class="tech-item-row neon-red" data-index="4">
+                  <span class="tech-dot-red"></span>
+                  <span class="tech-title-en">SYSTEM</span>
+                  <span class="tech-arrow-red">›</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- OVERLAY 3: SCENE 3 (FROM CODE TO SYSTEM / ห้องโค้ดดิ้ง) -->
+        <div class="video-text-overlay overlay-scene-3" id="overlay-3">
+          <div class="container cinematic-hud-layout">
+            <div class="hud-text-box">
+              <div class="hud-stage-badge neon-red"><span class="pulse-dot dot-red"></span> STAGE 03 // THE ENGINE ROOM</div>
+              <h2 class="hud-headline">FROM A SINGLE LINE OF CODE<br><span class="text-neon-red">TO INFINITE SYSTEMS.</span></h2>
+              <p class="hud-sub">จากโค้ดเล็ก ๆ สู่ระบบจริงระดับโลก</p>
+            </div>
+          </div>
+
+          <!-- Bottom-Right Floating Terminal: ERROR 404 & Streaming Code (ภาษาโค้ด วิ่งๆ) -->
+          <div class="code-stream-terminal-hud">
+            <div class="term-top-bar">
+              <div class="term-dots">
+                <span class="term-dot red"></span>
+                <span class="term-dot yellow"></span>
+                <span class="term-dot green"></span>
+              </div>
+              <span class="term-title-mini">compiler.se — resolving 404</span>
+              <span class="term-live-indicator"><span class="live-dot-green"></span> RUNNING</span>
+            </div>
+
+            <!-- Error 404 Alert Banner -->
+            <div class="term-error-404-box">
+              <span class="err-sign">⚠️</span>
+              <div class="err-info">
+                <strong>ERROR 404</strong>
+                <span>System Not Found ➔ Resolving...</span>
+              </div>
+              <span class="err-pill-fix">AUTO-FIX</span>
+            </div>
+
+            <!-- Streaming Code Lines (ภาษาโค้ด วิ่งๆ) -->
+            <div class="terminal-code-stream">
+              <div class="code-stream-inner">
+                <div class="c-row"><span class="c-ln">01</span><span class="t-kw">import</span> { AI, System } <span class="t-kw">from</span> <span class="t-str">"sskr-core"</span>;</div>
+                <div class="c-row"><span class="c-ln">02</span><span class="t-kw">const</span> engine = <span class="t-fn">buildEngine</span>();</div>
+                <div class="c-row"><span class="c-ln">03</span><span class="t-kw">while</span> (<span class="t-var">idea</span>) {</div>
+                <div class="c-row"><span class="c-ln">04</span>  <span class="t-fn">designArchitecture</span>();</div>
+                <div class="c-row"><span class="c-ln">05</span>  <span class="t-fn">compileNeuralGraph</span>();</div>
+                <div class="c-row"><span class="c-ln">06</span>  <span class="t-kw">await</span> <span class="t-fn">resolveBug404</span>();</div>
+                <div class="c-row"><span class="c-ln">07</span>}</div>
+                <div class="c-row success-tag"><span class="c-ln">08</span><span class="t-comment">// [✓] SYSTEM ONLINE: 100% READY</span> <span class="cursor-typing">▌</span></div>
+              </div>
+            </div>
+            
+            <div class="term-footer-bar">
+              <span>COMPILE: 60 FPS • 0 ERRORS</span>
+              <span class="term-status-ok">STATUS: OK</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- OVERLAY 4: SCENE 4 (WARP INTO THE DIGITAL WORLD / อุโมงค์ดิจิทัล) -->
+        <div class="video-text-overlay overlay-scene-4" id="overlay-4">
+          <div class="container cinematic-hud-layout hud-bottom-layout">
+            <div class="hud-text-box warp-box">
+              <div class="hud-stage-badge neon-red"><span class="pulse-dot dot-red"></span> STAGE 04 // WARP DIMENSION</div>
+              <h2 class="hud-headline">WARP INTO<br><span class="text-neon-red">THE DIGITAL WORLD</span></h2>
+              <p class="hud-sub">ก้าวสู่โลกดิจิทัลที่ไร้ขีดจำกัด ข้อมูลและเทคโนโลยีหมุนรอบตัว</p>
+              
+              <!-- Neon Red Horizontal Bottom Dock (เรียงยาวด้านล่าง) -->
+              <div class="horizontal-bottom-dock neon-red">
+                <div class="dock-item neon-red">
+                  <span class="dock-dot-red"></span>
+                  <span class="dock-icon">⚡</span>
+                  <span class="dock-text">HYPERSPEED</span>
+                </div>
+                <div class="dock-item neon-red">
+                  <span class="dock-dot-red"></span>
+                  <span class="dock-icon">☁️</span>
+                  <span class="dock-text">CLOUD MATRIX</span>
+                </div>
+                <div class="dock-item neon-red">
+                  <span class="dock-dot-red"></span>
+                  <span class="dock-icon">🧠</span>
+                  <span class="dock-text">NEURAL DATA</span>
+                </div>
+                <div class="dock-item neon-red">
+                  <span class="dock-dot-red"></span>
+                  <span class="dock-icon">🔒</span>
+                  <span class="dock-text">CYBERNETICS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- OVERLAY 5: SCENE 5 (CAREERS IN SOFTWARE ENGINEERING / สู่อนาคตวิศวกรซอฟต์แวร์) -->
+        <div class="video-text-overlay overlay-scene-5" id="overlay-5">
+          <div class="container cinematic-hud-layout hud-bottom-layout">
+            <div class="hud-text-box future-box">
+              <div class="hud-stage-badge neon-red"><span class="pulse-dot dot-red"></span> STAGE 05 // SOFTWARE CAREERS &amp; FUTURE</div>
+              <h2 class="hud-headline">SHAPING THE FUTURE<br><span class="text-neon-red">WITH SOFTWARE ENGINEERING</span></h2>
+              <p class="hud-sub">
+                <span class="hud-quote">“เราไม่ได้แค่เขียนโค้ดให้ระบบทำงาน แต่เราวิศวกรรมอนาคตเพื่อขับเคลื่อนโลก”</span><br>
+                <span class="hud-sub-detail">จากก้าวแรกในห้องเรียน มรภ.ศรีสะเกษ สู่การเป็นผู้สร้างสรรค์นวัตกรรมดิจิทัลและเทคโนโลยีระดับสากล</span>
+              </p>
+              
+              <!-- Neon Red Horizontal Bottom Dock (สายงานจริงของวิศวกรรมซอฟต์แวร์ เรียงยาวด้านล่าง) -->
+              <div class="horizontal-bottom-dock neon-red">
+                <div class="dock-item neon-red">
+                  <span class="dock-dot-red"></span>
+                  <span class="dock-icon">💻</span>
+                  <span class="dock-text">FULL-STACK DEVELOPER</span>
+                </div>
+                <div class="dock-item neon-red">
+                  <span class="dock-dot-red"></span>
+                  <span class="dock-icon">☁️</span>
+                  <span class="dock-text">CLOUD &amp; DEVOPS</span>
+                </div>
+                <div class="dock-item neon-red">
+                  <span class="dock-dot-red"></span>
+                  <span class="dock-icon">🧠</span>
+                  <span class="dock-text">AI &amp; DATA ENGINEER</span>
+                </div>
+                <div class="dock-item neon-red">
+                  <span class="dock-dot-red"></span>
+                  <span class="dock-icon">📱</span>
+                  <span class="dock-text">MOBILE DEVELOPER</span>
+                </div>
+                <div class="dock-item neon-red">
+                  <span class="dock-dot-red"></span>
+                  <span class="dock-icon">🛡️</span>
+                  <span class="dock-text">QA &amp; SECURITY</span>
+                </div>
+              </div>
+
+              <div class="next-campus-hint neon-red btn-scroll-to" data-target="#scene-space">
+                <span class="down-arrow-hint red">↓</span>
+                <span>เลื่อนลงเพื่อทะยานสู่ <strong>มุมมองระดับโลก (Global Tech Scale)</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         LOCKED EARTH SCROLLYTELLING TRACK
+         (ล็อคโลกไว้ด้านหลัง เอาเนื้อหาลอยเข้ามา จนถึง ราชภัฏ ค่อยมาทั้งดุ้น)
+         ============================================== -->
+    <div class="earth-locked-track" id="scene-space">
+      <!-- Pinned / Locked Earth Backdrop (Sticky 100vh) -->
+      <div class="earth-sticky-backdrop">
+        <img src="/images/space.png" alt="Orbital Space Station Over Earth" class="space-matrix-img" id="sticky-earth-img">
+        <div class="space-matrix-overlay"></div>
+        <!-- Center Earth Radar Pinpoint -->
+        <div class="earth-radar-pinpoint">
+          <span class="radar-pulse-ring yellow-ring"></span>
+          <span class="radar-center-dot yellow-center"></span>
+          <div class="radar-tag yellow-node">
+            <span class="r-dot"></span>
+            <span>SSKRU DIGITAL NODE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrolling Content Layers over the Locked Earth -->
+      <div class="earth-scroll-content">
+        
+        <!-- STEP 1: Orbital Space Intro (FROM CLASSROOM TO GLOBAL TECH SCALE) -->
+        <section class="earth-text-layer layer-orbital-intro" id="space-intro-stage">
+          <div class="container space-matrix-container">
+            <!-- Top Row: Floating Title & Telemetry Widget -->
+            <div class="space-top-row">
+              <div class="space-header-left">
+                <div class="hud-stage-badge cyber-yellow"><span class="pulse-dot dot-yellow"></span> ORBITAL DEPLOYMENT // CONNECTING THE DIGITAL WORLD</div>
+                <h2 class="space-headline">FROM CLASSROOM<br><span class="text-cyber-yellow">TO GLOBAL TECH SCALE</span></h2>
+                <p class="space-sub yellow-sub">ซอฟต์แวร์ไม่ได้จำกัดอยู่แค่ในห้องเรียน แต่เชื่อมโยงโครงข่ายและขับเคลื่อนทั้งโลกใบนี้</p>
+              </div>
+
+              <div class="space-telemetry-hud yellow-hud">
+                <div class="term-dots">
+                  <span class="term-dot yellow"></span>
+                  <span class="term-dot yellow"></span>
+                  <span class="term-dot green"></span>
+                </div>
+                <div class="hud-t-row"><span class="hud-t-lbl">TARGET:</span> <span class="hud-t-val text-cyber-yellow">EARTH MATRIX</span></div>
+                <div class="hud-t-row"><span class="hud-t-lbl">ALTITUDE:</span> <span class="hud-t-val">420 KM // LEO</span></div>
+                <div class="hud-t-row"><span class="hud-t-lbl">LOCATION:</span> <span class="hud-t-val text-cyber-yellow">15.11° N, 104.33° E</span></div>
+                <div class="hud-t-row"><span class="hud-t-lbl">STATUS:</span> <span class="hud-t-val live-green">ONLINE 100%</span></div>
+              </div>
+            </div>
+
+            <!-- Bottom Row: Sleek Highlights Dock -->
+            <div class="space-bottom-dock">
+              <div class="space-highlights-row">
+                <div class="space-chip-item yellow-chip">
+                  <span class="s-chip-icon">🛰️</span>
+                  <div class="s-chip-info">
+                    <strong>INFINITE SYSTEMS</strong>
+                    <span>คลาวด์และโครงสร้างสากล</span>
+                  </div>
+                </div>
+                <div class="space-chip-item yellow-chip">
+                  <span class="s-chip-icon">🌐</span>
+                  <div class="s-chip-info">
+                    <strong>GLOBAL CONNECTIVITY</strong>
+                    <span>เชื่อมต่อดาต้าไร้พรมแดน</span>
+                  </div>
+                </div>
+                <div class="space-chip-item yellow-chip">
+                  <span class="s-chip-icon">🚀</span>
+                  <div class="s-chip-info">
+                    <strong>FUTURE READY</strong>
+                    <span>พร้อมสู่ตลาดงานระดับโลก</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="next-campus-hint cyber-yellow btn-scroll-to" data-target="#scene-6">
+                <span class="down-arrow-hint yellow">↓</span>
+                <span>เลื่อนลงเพื่อเข้าสู่ <strong>หลักสูตรวิศวกรรมซอฟต์แวร์ (Curriculum)</strong></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 2: Curriculum (เรียนวิศวกรรมซอฟต์แวร์ เรียนอะไรบ้าง?) -->
+        <section id="scene-6" class="earth-text-layer layer-curriculum">
+          <div class="container">
+            <div class="section-top-row">
+              <div>
+                <div class="hud-stage-badge neon-red"><span class="pulse-dot dot-red"></span> ACADEMIC BLUEPRINT // CURRICULUM</div>
+                <h2 class="section-title-white">เรียนวิศวกรรมซอฟต์แวร์ เรียนอะไรบ้าง?</h2>
+                <p class="section-subtitle-red">หลักสูตรเข้มข้น ครอบคลุมทุกทักษะที่ตลาดแรงงานระดับโลกต้องการ</p>
+              </div>
+              <div class="learn-practice-grow-tag">
+                <strong>LEARN • PRACTICE • GROW</strong>
+                <span>จากห้องเรียน สู่โลกการทำงานจริง</span>
+              </div>
+            </div>
+
+            <div class="curriculum-cards-grid" id="curriculum-grid">
+              <div class="curri-box" data-tilt>
+                <div class="curri-icon">💻</div>
+                <div class="curri-name-en">Programming</div>
+                <div class="curri-name-th">การเขียนโปรแกรม</div>
+                <p class="curri-desc">เรียนรู้ภาษา Python, JavaScript, TypeScript, C++, Java ปูพื้นฐาน Logic และ Problem Solving สู่การเป็นนักพัฒนาซอฟต์แวร์มืออาชีพ</p>
+              </div>
+              <div class="curri-box" data-tilt>
+                <div class="curri-icon">📐</div>
+                <div class="curri-name-en">Software Design</div>
+                <div class="curri-name-th">การออกแบบซอฟต์แวร์</div>
+                <p class="curri-desc">Design Patterns, Clean Architecture, UML, Microservices สถาปัตยกรรมซอฟต์แวร์ที่รองรับการขยายตัวระดับองค์กร</p>
+              </div>
+              <div class="curri-box" data-tilt>
+                <div class="curri-icon">🎨</div>
+                <div class="curri-name-en">UX/UI Design</div>
+                <div class="curri-name-th">การออกแบบประสบการณ์ผู้ใช้</div>
+                <p class="curri-desc">Design Thinking, Figma, Wireframing, Prototyping และการทำ Usability Testing เพื่อสร้างชิ้นงานที่ตอบโจทย์ผู้ใช้งานจริง</p>
+              </div>
+              <div class="curri-box" data-tilt>
+                <div class="curri-icon">🗄️</div>
+                <div class="curri-name-en">Database Systems</div>
+                <div class="curri-name-th">ฐานข้อมูลและคลังข้อมูล</div>
+                <p class="curri-desc">SQL (PostgreSQL, MySQL), NoSQL (MongoDB, Redis), Data Modeling, Query Optimization และการออกแบบฐานข้อมูลขนาดใหญ่</p>
+              </div>
+              <div class="curri-box featured-curri" data-tilt>
+                <div class="curri-icon">🧠</div>
+                <div class="curri-name-en">AI & Machine Learning</div>
+                <div class="curri-name-th">ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง</div>
+                <p class="curri-desc">Machine Learning, Deep Learning, Computer Vision, NLP และการนำ AI / LLM มาประยุกต์ใช้ในแอปพลิเคชันยุคใหม่</p>
+              </div>
+              <div class="curri-box" data-tilt>
+                <div class="curri-icon">📱</div>
+                <div class="curri-name-en">Web & Mobile Development</div>
+                <div class="curri-name-th">การพัฒนาเว็บและแอปพลิเคชันมือถือ</div>
+                <p class="curri-desc">Modern Frontend (React, Vue), Backend (Node.js, Go), Cross-platform Mobile (Flutter, React Native)</p>
+              </div>
+              <div class="curri-box" data-tilt>
+                <div class="curri-icon">🛡️</div>
+                <div class="curri-name-en">Software Testing & QA</div>
+                <div class="curri-name-th">การทดสอบและประกันคุณภาพซอฟต์แวร์</div>
+                <p class="curri-desc">Unit Testing, Integration Testing, Automated E2E (Playwright, Cypress), CI/CD pipelines และมาตรฐานคุณภาพสากล</p>
+              </div>
+              <div class="curri-box" data-tilt>
+                <div class="curri-icon">⚙️</div>
+                <div class="curri-name-en">Cloud & DevOps</div>
+                <div class="curri-name-th">การพัฒนาระบบคลาวด์และเดฟออปส์</div>
+                <p class="curri-desc">Docker, Kubernetes, AWS, Google Cloud, CI/CD, Infrastructure as Code และการดูแลรักษาระบบ Production 24/7</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 3: Faculty (คณาจารย์ผู้เชี่ยวชาญ) -->
+        <section id="scene-7" class="earth-text-layer layer-faculty">
+          <div class="container text-center">
+            <div class="faculty-header-block">
+              <div class="hud-stage-badge neon-red"><span class="pulse-dot dot-red"></span> FACULTY &amp; MENTORS</div>
+              <h2 class="faculty-main-heading">คณาจารย์ผู้เชี่ยวชาญ</h2>
+              <p class="faculty-subheading">พร้อมให้คำแนะนำ และเป็นกำลังใจในทุกก้าวของคุณ</p>
+            </div>
+
+            <div class="sskr-faculty-row" id="faculty-grid">
+              <div class="sskr-faculty-card" data-tilt>
+                <div class="prof-portrait-wrap">
+                  <img src="/images/prof_sskr_1.jpg" alt="ผศ.ดร.รณชัย เจริญศิลป์" class="prof-pic">
+                </div>
+                <h3 class="prof-name">ผศ.ดร.รณชัย เจริญศิลป์</h3>
+                <p class="prof-role">หัวหน้าสาขาวิชาวิศวกรรมซอฟต์แวร์</p>
+                <div class="prof-badge-specialty">
+                  <span>Software Architecture &amp; Distributed Systems</span>
+                </div>
+              </div>
+
+              <div class="sskr-faculty-card" data-tilt>
+                <div class="prof-portrait-wrap">
+                  <img src="/images/prof_sskr_2.jpg" alt="ผศ.ดร.กิตติพงศ์ บุญมา" class="prof-pic">
+                </div>
+                <h3 class="prof-name">ผศ.ดร.กิตติพงศ์ บุญมา</h3>
+                <p class="prof-role">อาจารย์ประจำสาขา</p>
+                <div class="prof-badge-specialty">
+                  <span>AI & Machine Learning</span>
+                </div>
+              </div>
+
+              <div class="sskr-faculty-card" data-tilt>
+                <div class="prof-portrait-wrap">
+                  <img src="/images/prof_sskr_3.jpg" alt="อ.ดร.ปิยวดี แสนคำ" class="prof-pic">
+                </div>
+                <h3 class="prof-name">อ.ดร.ปิยวดี แสนคำ</h3>
+                <p class="prof-role">อาจารย์ประจำสาขา</p>
+                <div class="prof-badge-specialty">
+                  <span>Web & Mobile</span>
+                </div>
+              </div>
+
+              <div class="sskr-faculty-card" data-tilt>
+                <div class="prof-portrait-wrap">
+                  <img src="/images/prof_sskr_4.jpg" alt="ผศ.ดร.สุรศักดิ์ ภูมิพงศ์" class="prof-pic">
+                </div>
+                <h3 class="prof-name">ผศ.ดร.สุรศักดิ์ ภูมิพงศ์</h3>
+                <p class="prof-role">อาจารย์ประจำสาขา</p>
+                <div class="prof-badge-specialty">
+                  <span>Database & Cloud</span>
+                </div>
+              </div>
+
+              <div class="sskr-faculty-card" data-tilt>
+                <div class="prof-portrait-wrap">
+                  <img src="/images/prof_sskr_5.jpg" alt="อ.ดร.นพดล ไชยศรี" class="prof-pic">
+                </div>
+                <h3 class="prof-name">อ.ดร.นพดล ไชยศรี</h3>
+                <p class="prof-role">อาจารย์ประจำสาขา</p>
+                <div class="prof-badge-specialty">
+                  <span>Software Testing</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Navigation prompt to Rajabhat Campus (จนถึงราชภัฏ ค่อยมาทั้งดุ้น) -->
+            <div class="faculty-to-space-hint">
+              <button class="btn btn-neon-red btn-lg btn-scroll-to" data-target="#scene-news">
+                <span>🏛️ เข้าสู่มหาวิทยาลัยราชภัฏศรีสะเกษ และข่าวสารสาขา</span>
+                <span class="down-arrow-hint red">↓</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+
+    <!-- ==============================================
+         SCENE: ข่าวสารและกิจกรรมส่วนรวม (COMMUNITY & ANNOUNCEMENTS)
+         ============================================== -->
+    <section id="scene-news" class="scrolly-scene news-scene">
+      <div class="container">
+        <div class="section-top-row">
+          <div>
+            <div class="code-tag">COMMUNITY &amp; UPDATES</div>
+            <h2 class="section-title-white">ข่าวสารและกิจกรรมส่วนรวม</h2>
+            <p class="section-subtitle-red">อัปเดตความเคลื่อนไหว ประกาศรับสมัคร และกิจกรรมของสาขาวิชา</p>
+          </div>
+          <div class="learn-practice-grow-tag">
+            <strong>NEWS &amp; EVENTS</strong>
+            <span>สาขาวิชาวิศวกรรมซอฟต์แวร์ SSKRU</span>
+          </div>
+        </div>
+
+        <div class="news-cards-grid" id="news-cards-grid">
+          <!-- Dynamically populated from database /api/announcements -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==============================================
+         SCENE 8: FOOTER / CTA (YOUR JOURNEY STARTS HERE)
+         ============================================== -->
+    <section id="scene-8" class="scrolly-scene footer-cta-scene">
+      <div class="campus-showcase-bg">
+        <img src="/images/campus.png" alt="มหาวิทยาลัยราชภัฏศรีสะเกษ" class="campus-bg-photo">
+      </div>
+      <div class="container footer-cta-layout">
+        <div class="footer-cta-left">
+          <div class="golden-se-logo-box">
+            <img src="/images/golden_gear.jpg" alt="SE Golden Emblem" class="footer-gear-logo">
+          </div>
+        </div>
+
+        <div class="footer-cta-center">
+          <h2 class="footer-journey-title text-neon-red">YOUR JOURNEY<br>STARTS HERE.</h2>
+          <p class="footer-uni-name">วิศวกรรมซอฟต์แวร์ มหาวิทยาลัยราชภัฏศรีสะเกษ</p>
+        </div>
+
+        <div class="footer-cta-right">
+          <div class="footer-btn-group">
+            <button class="btn btn-neon-red btn-xl" id="btn-footer-apply">
+              <span class="btn-icon-user">👤</span>
+              <span>สมัครเรียน</span>
+            </button>
+            <button class="btn btn-outline-crimson btn-xl" id="btn-footer-contact">
+              <span>ติดต่อสาขา</span>
+            </button>
+          </div>
+          <div class="footer-social-row">
+            <a href="#" class="social-circle">f</a>
+            <a href="#" class="social-circle">in</a>
+            <a href="#" class="social-circle">yt</a>
+            <a href="#" class="social-circle">🌐</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: สมัครเรียน (ADMISSION MODAL) -->
+  <div class="modal-backdrop" id="modal-apply">
+    <div class="modal-dialog crimson-glass-panel">
+      <button class="modal-close" id="btn-close-apply">&times;</button>
+      <div class="modal-header">
+        <div class="modal-badge-gold">ADMISSION 2026</div>
+        <h2>สมัครเรียน สาขาวิชาวิศวกรรมซอฟต์แวร์</h2>
+        <p>มหาวิทยาลัยราชภัฏศรีสะเกษ (Sisaket Rajabhat University)</p>
+      </div>
+      <form id="form-apply" class="apply-form">
+        <div class="form-group">
+          <label for="apply-name">ชื่อ - นามสกุล *</label>
+          <input type="text" id="apply-name" placeholder="นายสมชาย ใจดี" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="apply-phone">เบอร์โทรศัพท์ติดต่อ *</label>
+            <input type="tel" id="apply-phone" placeholder="08x-xxx-xxxx" required>
+          </div>
+          <div class="form-group">
+            <label for="apply-email">อีเมล *</label>
+            <input type="email" id="apply-email" placeholder="example@email.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="apply-school">โรงเรียน / วุฒิการศึกษาเดิม</label>
+          <input type="text" id="apply-school" placeholder="มัธยมศึกษาปีที่ 6 / ปวช. / อื่นๆ">
+        </div>
+        <button type="submit" class="btn btn-gold btn-block btn-lg">
+          <span>ยืนยันส่งใบสมัคร</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ติดต่อสาขาวิชา (CONTACT MODAL) -->
+  <div class="modal-backdrop" id="modal-contact">
+    <div class="modal-dialog crimson-glass-panel">
+      <button class="modal-close" id="btn-close-contact">&times;</button>
+      <div class="modal-header">
+        <div class="modal-badge-gold">GET IN TOUCH</div>
+        <h2>ติดต่อสาขาวิชาวิศวกรรมซอฟต์แวร์</h2>
+        <p>มหาวิทยาลัยราชภัฏศรีสะเกษ (Sisaket Rajabhat University)</p>
+      </div>
+      <form id="form-contact" class="apply-form">
+        <div class="form-group">
+          <label for="contact-name">ชื่อ - นามสกุล หรือหน่วยงาน *</label>
+          <input type="text" id="contact-name" placeholder="นายสมชาย ใจดี" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-email">อีเมลสำหรับติดต่อกลับ *</label>
+          <input type="email" id="contact-email" placeholder="example@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-subject">เรื่องที่ต้องการติดต่อ / สอบถาม *</label>
+          <input type="text" id="contact-subject" placeholder="สอบถามข้อมูลหลักสูตร, ทุนการศึกษา หรือความร่วมมือ" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-message">รายละเอียดข้อความ *</label>
+          <textarea id="contact-message" class="cms-textarea" rows="4" placeholder="พิมพ์ข้อความของคุณที่นี่..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold btn-block btn-lg">
+          <span>📨 ส่งข้อความถึงสาขา</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==============================================
+       ADMIN LOGIN & CMS CONTROL CENTER
+       ============================================== -->
+
+  <!-- MODAL: เข้าสู่ระบบผู้ดูแล (ADMIN LOGIN MODAL) -->
+  <div class="modal-backdrop" id="modal-admin-login">
+    <div class="modal-dialog modal-login-dialog crimson-glass-panel">
+      <button class="modal-close" id="btn-close-admin-login">&times;</button>
+      <div class="login-header-cyber">
+        <div class="brand-logo-gear login-gear">
+          <img src="/images/golden_gear.jpg" alt="SE Golden Gear" class="mini-gear-img">
+        </div>
+        <h2>🔒 เข้าสู่ระบบผู้ดูแล (ADMIN LOGIN)</h2>
+        <p class="text-muted">SSKRU Software Engineering • Content Management System</p>
+      </div>
+
+      <div id="login-error-alert" class="alert-box alert-error" style="display: none;"></div>
+
+      <form id="form-admin-login" class="login-form">
+        <div class="form-group-cyber">
+          <label for="login-username">ชื่อผู้ใช้ (Username)</label>
+          <div class="input-with-icon">
+            <span class="input-icon">👤</span>
+            <input type="text" id="login-username" class="cyber-input" placeholder="กรอกชื่อผู้ใช้..." required autocomplete="username">
+          </div>
+        </div>
+
+        <div class="form-group-cyber">
+          <label for="login-password">รหัสผ่าน (Password)</label>
+          <div class="input-with-icon">
+            <span class="input-icon">🔑</span>
+            <input type="password" id="login-password" class="cyber-input" placeholder="กรอกรหัสผ่าน..." required autocomplete="current-password">
+            <button type="button" id="btn-toggle-password" class="btn-toggle-eye" title="แสดง/ซ่อนรหัสผ่าน">👁️</button>
+          </div>
+        </div>
+
+        <button type="submit" id="btn-submit-login" class="btn btn-neon-red btn-block btn-lg">
+          <span class="btn-login-spinner" style="display: none;">⏳</span>
+          <span>🚀 เข้าสู่ระบบ (Sign In)</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: แก้ไขข้อมูลรายตัว (UNIVERSAL ADMIN EDIT MODAL) -->
+  <div class="modal-backdrop" id="modal-admin-edit">
+    <div class="modal-dialog modal-edit-dialog crimson-glass-panel">
+      <button class="modal-close" id="btn-close-edit">&times;</button>
+      <div class="modal-header-cyber">
+        <h3 id="edit-modal-title">✏️ แก้ไขข้อมูล</h3>
+        <p class="text-muted" id="edit-modal-subtitle">แก้ไขและบันทึกการเปลี่ยนแปลงลงฐานข้อมูล</p>
+      </div>
+      <form id="form-admin-edit" class="cms-form-grid">
+        <input type="hidden" id="edit-item-type">
+        <input type="hidden" id="edit-item-id">
+        <div id="edit-fields-container" class="edit-fields-wrapper span-2">
+          <!-- Dynamically populated via cms.js -->
+        </div>
+        <div class="cms-form-actions span-2" style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1.25rem;">
+          <button type="button" class="btn btn-outline-white" id="btn-cancel-edit">ยกเลิก</button>
+          <button type="submit" class="btn btn-neon-red"><span>💾 บันทึกการแก้ไข</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ระบบจัดการเนื้อหา (ADMIN CMS CONTROL CENTER) -->
+  <div class="modal-backdrop" id="modal-admin-cms">
+    <div class="modal-dialog modal-admin-dialog crimson-glass-panel">
+      <button class="modal-close" id="btn-close-admin">&times;</button>
+      
+      <div class="cms-header-row">
+        <div class="cms-header-left">
+          <h2>⚙️ ศูนย์ควบคุมระบบและฐานข้อมูล (SSKRU SE Admin Portal)</h2>
+          <div class="cms-header-meta">
+            <span class="cms-badge-live">● DATABASE CONNECTED (JSON / REST API)</span>
+            <span class="cms-badge-user">👤 ผู้ดูแล: <strong id="admin-user-display">admin</strong></span>
+          </div>
+        </div>
+        <div class="cms-header-actions">
+          <button id="btn-admin-logout" class="btn btn-outline-neon-red btn-sm" title="ออกจากระบบ CMS">
+            <span>🚪 ออกจากระบบ</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs (เมนูแต่ละหน้า) -->
+      <div class="cms-nav-tabs">
+        <button class="cms-tab-btn active" data-tab="curri">
+          <span>🎓 หลักสูตร</span>
+          <span class="cms-tab-count" id="badge-curri-count">0</span>
+        </button>
+        <button class="cms-tab-btn" data-tab="faculty">
+          <span>👨‍🏫 อาจารย์</span>
+          <span class="cms-tab-count" id="badge-faculty-count">0</span>
+        </button>
+        <button class="cms-tab-btn" data-tab="news">
+          <span>📢 ข่าวสาร &amp; กิจกรรม</span>
+          <span class="cms-tab-count" id="badge-news-count">0</span>
+        </button>
+        <button class="cms-tab-btn" data-tab="apps">
+          <span>📋 ผู้สมัครเรียน</span>
+          <span class="cms-tab-count" id="badge-apps-count">0</span>
+        </button>
+        <button class="cms-tab-btn" data-tab="contacts">
+          <span>✉️ ข้อความติดต่อ</span>
+          <span class="cms-tab-count" id="badge-contacts-count">0</span>
+        </button>
+        <button class="cms-tab-btn" data-tab="general">
+          <span>🏢 ข้อมูลทั่วไป &amp; สถิติ</span>
+        </button>
+        <button class="cms-tab-btn" data-tab="security">
+          <span>🔒 บัญชี &amp; รหัสผ่าน</span>
+        </button>
+      </div>
+
+      <div class="cms-body">
+        <!-- PANEL 1: CURRICULUM (CRUD) -->
+        <div class="cms-panel active" id="panel-curri">
+          <div class="cms-card">
+            <h3 class="cms-card-title">+ เพิ่มรายวิชาใหม่ในหลักสูตร (Create)</h3>
+            <form id="form-add-curri" class="cms-form-grid">
+              <div class="cms-form-group">
+                <label>ไอคอน (Emoji)</label>
+                <input type="text" id="curri-input-icon" class="cms-input" value="💻" required>
+              </div>
+              <div class="cms-form-group">
+                <label>ชื่อวิชา (ภาษาอังกฤษ)</label>
+                <input type="text" id="curri-input-nameEn" class="cms-input" placeholder="e.g. Cloud Computing" required>
+              </div>
+              <div class="cms-form-group">
+                <label>ชื่อวิชา (ภาษาไทย)</label>
+                <input type="text" id="curri-input-nameTh" class="cms-input" placeholder="e.g. การประมวลผลแบบคลาวด์" required>
+              </div>
+              <div class="cms-form-group">
+                <label>หมวดหมู่</label>
+                <select id="curri-input-cat" class="cms-select">
+                  <option value="Core">Core</option>
+                  <option value="Design">Design</option>
+                  <option value="Data">Data</option>
+                  <option value="Advanced">Advanced</option>
+                  <option value="Application">Application</option>
+                  <option value="Quality">Quality</option>
+                  <option value="System">System</option>
+                </select>
+              </div>
+              <div class="cms-form-group span-2">
+                <label>คำอธิบายเนื้อหารายวิชา</label>
+                <input type="text" id="curri-input-desc" class="cms-input" placeholder="คำอธิบายสั้นๆ ของวิชานี้">
+              </div>
+              <div class="cms-form-group" style="align-self: flex-end;">
+                <button type="submit" class="btn btn-neon-red btn-block"><span>+ บันทึกรายวิชา</span></button>
+              </div>
+            </form>
+          </div>
+
+          <div class="cms-table-header-bar">
+            <div class="cms-search-box">
+              <input type="text" id="search-curri" class="cms-search-input" placeholder="🔍 ค้นหารายวิชา...">
+            </div>
+            <span class="text-muted" id="label-curri-stats">แสดงรายการทั้งหมด</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="cms-table">
+              <thead>
+                <tr>
+                  <th style="width: 45px;">#</th>
+                  <th style="width: 50px;">ไอคอน</th>
+                  <th>ชื่อรายวิชา</th>
+                  <th>หมวดหมู่</th>
+                  <th>คำอธิบาย</th>
+                  <th style="width: 140px; text-align: center;">จัดการ (CRUD)</th>
+                </tr>
+              </thead>
+              <tbody id="admin-curri-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL 2: FACULTY (CRUD) -->
+        <div class="cms-panel" id="panel-faculty">
+          <div class="cms-card">
+            <h3 class="cms-card-title">+ เพิ่มข้อมูลอาจารย์ใหม่ (Create)</h3>
+            <form id="form-add-faculty" class="cms-form-grid">
+              <div class="cms-form-group">
+                <label>ชื่อ - นามสกุล (พร้อมคำนำหน้า)</label>
+                <input type="text" id="faculty-input-name" class="cms-input" placeholder="ผศ.ดร.สมชาย ใจดี" required>
+              </div>
+              <div class="cms-form-group">
+                <label>ตำแหน่ง</label>
+                <input type="text" id="faculty-input-role" class="cms-input" placeholder="อาจารย์ประจำสาขาวิชา" required>
+              </div>
+              <div class="cms-form-group">
+                <label>ความเชี่ยวชาญ (Specialty)</label>
+                <input type="text" id="faculty-input-specialty" class="cms-input" placeholder="AI, Software Architecture" required>
+              </div>
+              <div class="cms-form-group">
+                <label>อีเมล</label>
+                <input type="email" id="faculty-input-email" class="cms-input" placeholder="teacher@sskru.ac.th">
+              </div>
+              <div class="cms-form-group">
+                <label>ลิงก์รูปภาพ (URL หรือ /images/...)</label>
+                <input type="text" id="faculty-input-image" class="cms-input" value="/images/prof_sskr_1.jpg">
+              </div>
+              <div class="cms-form-group" style="align-self: flex-end;">
+                <button type="submit" class="btn btn-neon-red btn-block"><span>+ บันทึกอาจารย์</span></button>
+              </div>
+            </form>
+          </div>
+
+          <div class="cms-table-header-bar">
+            <div class="cms-search-box">
+              <input type="text" id="search-faculty" class="cms-search-input" placeholder="🔍 ค้นหาอาจารย์...">
+            </div>
+            <span class="text-muted" id="label-faculty-stats">แสดงรายการทั้งหมด</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="cms-table">
+              <thead>
+                <tr>
+                  <th style="width: 45px;">#</th>
+                  <th style="width: 55px;">รูป</th>
+                  <th>ชื่อ-นามสกุล</th>
+                  <th>ตำแหน่ง</th>
+                  <th>ความเชี่ยวชาญ</th>
+                  <th>อีเมล</th>
+                  <th style="width: 140px; text-align: center;">จัดการ (CRUD)</th>
+                </tr>
+              </thead>
+              <tbody id="admin-faculty-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL 3: ANNOUNCEMENTS & NEWS (CRUD) -->
+        <div class="cms-panel" id="panel-news">
+          <div class="cms-card">
+            <h3 class="cms-card-title">+ โพสต์ข่าวสาร / กิจกรรมใหม่ (Create)</h3>
+            <form id="form-add-news" class="cms-form-grid">
+              <div class="cms-form-group span-2">
+                <label>หัวข้อข่าว / กิจกรรม</label>
+                <input type="text" id="news-input-title" class="cms-input" placeholder="ประกาศรับสมัคร หรือข่าวกิจกรรมสาขา" required>
+              </div>
+              <div class="cms-form-group">
+                <label>ป้ายกำกับ (Tag)</label>
+                <input type="text" id="news-input-tag" class="cms-input" placeholder="เช่น รับสมัคร, กิจกรรม, ผลงาน">
+              </div>
+              <div class="cms-form-group" style="flex-direction: row; align-items: center; gap: 0.5rem; margin-top: 1.5rem;">
+                <input type="checkbox" id="news-input-pinned" style="width: 18px; height: 18px; accent-color: #ffcc00;">
+                <label for="news-input-pinned" style="margin: 0; cursor: pointer;">⭐ ปักหมุดข่าวนี้</label>
+              </div>
+              <div class="cms-form-group span-2">
+                <label>เนื้อหาข่าว</label>
+                <textarea id="news-input-content" class="cms-textarea" rows="3" placeholder="รายละเอียดข่าวสาร..." required></textarea>
+              </div>
+              <div class="cms-form-group" style="align-self: flex-end;">
+                <button type="submit" class="btn btn-neon-red btn-block"><span>+ เผยแพร่ข่าว</span></button>
+              </div>
+            </form>
+          </div>
+
+          <div class="cms-table-header-bar">
+            <div class="cms-search-box">
+              <input type="text" id="search-news" class="cms-search-input" placeholder="🔍 ค้นหาข่าวสาร...">
+            </div>
+            <span class="text-muted" id="label-news-stats">แสดงรายการทั้งหมด</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="cms-table">
+              <thead>
+                <tr>
+                  <th style="width: 45px;">#</th>
+                  <th>หัวข้อข่าว</th>
+                  <th>หมวดหมู่</th>
+                  <th>วันที่</th>
+                  <th style="width: 140px; text-align: center;">จัดการ (CRUD)</th>
+                </tr>
+              </thead>
+              <tbody id="admin-news-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL 4: APPLICATIONS (CRUD) -->
+        <div class="cms-panel" id="panel-apps">
+          <div class="cms-table-header-bar" style="margin-bottom: 1rem;">
+            <div class="cms-search-box">
+              <input type="text" id="search-apps" class="cms-search-input" placeholder="🔍 ค้นหาผู้สมัคร...">
+            </div>
+            <div style="display: flex; gap: 0.75rem; align-items: center;">
+              <span class="text-muted" id="label-apps-stats">0 รายการ</span>
+              <button id="btn-export-apps" class="btn btn-outline-gold btn-sm">📥 ส่งออก Excel / CSV</button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="cms-table">
+              <thead>
+                <tr>
+                  <th style="width: 45px;">#</th>
+                  <th>ชื่อ-นามสกุล</th>
+                  <th>เบอร์โทร</th>
+                  <th>อีเมล</th>
+                  <th>โรงเรียน/วุฒิ</th>
+                  <th>สถานะ (Update)</th>
+                  <th>วันที่สมัคร</th>
+                  <th style="width: 60px; text-align: center;">ลบ</th>
+                </tr>
+              </thead>
+              <tbody id="admin-apps-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL 5: CONTACTS (CRUD) -->
+        <div class="cms-panel" id="panel-contacts">
+          <div class="cms-table-header-bar" style="margin-bottom: 1rem;">
+            <div class="cms-search-box">
+              <input type="text" id="search-contacts" class="cms-search-input" placeholder="🔍 ค้นหาข้อความ...">
+            </div>
+            <span class="text-muted" id="label-contacts-stats">0 ข้อความ</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="cms-table">
+              <thead>
+                <tr>
+                  <th style="width: 45px;">#</th>
+                  <th>ผู้ติดต่อ</th>
+                  <th>อีเมล</th>
+                  <th>เรื่อง</th>
+                  <th>ข้อความ</th>
+                  <th>สถานะ (Update)</th>
+                  <th>วันที่</th>
+                  <th style="width: 60px; text-align: center;">ลบ</th>
+                </tr>
+              </thead>
+              <tbody id="admin-contacts-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL 6: GENERAL INFO & STATS (CRUD) -->
+        <div class="cms-panel" id="panel-general">
+          <div class="cms-card">
+            <h3 class="cms-card-title">🏢 แก้ไขข้อมูลส่วนรวมสาขาวิชา &amp; สถิติ (Update)</h3>
+            <form id="form-general-info" class="cms-form-grid">
+              <div class="cms-form-group">
+                <label>จำนวนนักศึกษา (คน)</label>
+                <input type="number" id="gen-input-students" class="cms-input" required>
+              </div>
+              <div class="cms-form-group">
+                <label>จำนวนอาจารย์ (ท่าน)</label>
+                <input type="number" id="gen-input-faculty" class="cms-input" required>
+              </div>
+              <div class="cms-form-group">
+                <label>จำนวนห้องปฏิบัติการ (ห้อง)</label>
+                <input type="number" id="gen-input-labs" class="cms-input" required>
+              </div>
+              <div class="cms-form-group">
+                <label>อัตราการมีงานทำ</label>
+                <input type="text" id="gen-input-rate" class="cms-input" placeholder="98%" required>
+              </div>
+              <div class="cms-form-group">
+                <label>เบอร์โทรศัพท์ติดต่อสาขา</label>
+                <input type="text" id="gen-input-phone" class="cms-input">
+              </div>
+              <div class="cms-form-group">
+                <label>อีเมลสาขาวิชา</label>
+                <input type="email" id="gen-input-email" class="cms-input">
+              </div>
+              <div class="cms-form-group span-2">
+                <label>ลิงก์ Facebook Page สาขา</label>
+                <input type="text" id="gen-input-fb" class="cms-input">
+              </div>
+              <div class="cms-form-group span-2">
+                <label>สโลแกนสาขา</label>
+                <input type="text" id="gen-input-slogan" class="cms-input" placeholder="Build Your Future สร้างไอเดีย สร้างระบบ สร้างอนาคต">
+              </div>
+              <div class="cms-form-group" style="align-self: flex-end;">
+                <button type="submit" class="btn btn-neon-red btn-block"><span>💾 บันทึกข้อมูลส่วนรวม</span></button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- PANEL 7: SECURITY & PASSWORD (ADMIN ACCOUNT) -->
+        <div class="cms-panel" id="panel-security">
+          <div class="cms-card" style="max-width: 600px;">
+            <h3 class="cms-card-title">🔒 เปลี่ยนรหัสผ่านผู้ดูแลระบบ (Security Settings)</h3>
+            <p class="text-muted" style="margin-bottom: 1.25rem;">เพื่อความปลอดภัยของระบบ กรุณาใช้รหัสผ่านที่มีความรัดกุม</p>
+            <form id="form-change-password" class="cms-form-grid">
+              <div class="cms-form-group span-2">
+                <label>รหัสผ่านปัจจุบัน</label>
+                <input type="password" id="pwd-current" class="cms-input" required placeholder="กรอกรหัสผ่านเดิม">
+              </div>
+              <div class="cms-form-group span-2">
+                <label>รหัสผ่านใหม่ (อย่างน้อย 4 ตัวอักษร)</label>
+                <input type="password" id="pwd-new" class="cms-input" required placeholder="กรอกรหัสผ่านใหม่">
+              </div>
+              <div class="cms-form-group span-2">
+                <label>ยืนยันรหัสผ่านใหม่</label>
+                <input type="password" id="pwd-confirm" class="cms-input" required placeholder="ยืนยันรหัสผ่านใหม่อีกครั้ง">
+              </div>
+              <div class="cms-form-group span-2" style="margin-top: 0.5rem;">
+                <button type="submit" class="btn btn-neon-red"><span>💾 ยืนยันเปลี่ยนรหัสผ่าน</span></button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
