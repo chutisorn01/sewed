@@ -122,7 +122,10 @@ function renderCurriculum() {
 
   container.innerHTML = appData.curriculum.map((item) => `
     <div class="curri-box" data-tilt data-id="${item.id}">
-      <div class="curri-icon">${item.icon || "💻"}</div>
+      <div class="curri-top-row">
+        <div class="curri-icon">${item.icon || "💻"}</div>
+        ${item.code ? `<span class="curri-code-badge">${escapeHtml(item.code)}</span>` : (item.category ? `<span class="curri-code-badge">${escapeHtml(item.category)}</span>` : "")}
+      </div>
       <div class="curri-name-en">${escapeHtml(item.nameEn)}</div>
       <div class="curri-name-th">${escapeHtml(item.nameTh)}</div>
       ${item.description ? `<p class="curri-desc">${escapeHtml(item.description)}</p>` : ""}

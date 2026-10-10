@@ -430,6 +430,20 @@ function initMain() {
     });
   }
 
+  // Study Plan Modal
+  const modalStudyPlan = document.getElementById("modal-study-plan");
+  const btnOpenStudyPlan = document.getElementById("btn-open-study-plan");
+  const btnCloseStudyPlan = document.getElementById("btn-close-study-plan");
+
+  btnOpenStudyPlan?.addEventListener("click", (e) => {
+    e.preventDefault();
+    modalStudyPlan?.classList.add("active");
+  });
+  btnCloseStudyPlan?.addEventListener("click", () => modalStudyPlan?.classList.remove("active"));
+  modalStudyPlan?.addEventListener("click", (e) => {
+    if (e.target === modalStudyPlan) modalStudyPlan.classList.remove("active");
+  });
+
   document.getElementById("btn-view-curriculum-hero")?.addEventListener("click", () => {
     const curriSec = document.getElementById("scene-6");
     if (curriSec) scrollToTarget(curriSec, -60);

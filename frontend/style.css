@@ -1647,9 +1647,28 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 23, 68, 0.25);
 }
 
+.curri-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.9rem;
+}
+
+.curri-code-badge {
+  font-family: var(--font-code);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ff4d6d;
+  background: rgba(255, 23, 68, 0.12);
+  border: 1px solid rgba(255, 23, 68, 0.4);
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
 .curri-icon {
   font-size: 2.2rem;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0;
   filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.5));
 }
 
@@ -1675,6 +1694,134 @@ body {
   color: #cbd5e1;
   line-height: 1.6;
   margin-top: 0.5rem;
+}
+
+/* ===================================================
+   CURRICULUM BLUEPRINT STATS BANNER
+   =================================================== */
+.blueprint-stats-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.2rem;
+  margin: 2.2rem 0 2.5rem;
+}
+
+.blueprint-stat-card {
+  background: rgba(18, 2, 6, 0.82);
+  border: 1px solid rgba(255, 23, 68, 0.35);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 1.3rem 1.4rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.blueprint-stat-card:hover {
+  transform: translateY(-4px);
+  border-color: #ff1744;
+  box-shadow: 0 10px 25px rgba(255, 23, 68, 0.25);
+}
+
+.blueprint-stat-card.highlight {
+  border-color: rgba(255, 215, 0, 0.65);
+  background: linear-gradient(135deg, rgba(28, 4, 10, 0.92), rgba(255, 215, 0, 0.08));
+}
+
+.blueprint-stat-card.highlight .b-num {
+  color: #ffd700;
+  text-shadow: 0 0 14px rgba(255, 215, 0, 0.5);
+}
+
+.b-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ff8599;
+  margin-bottom: 0.3rem;
+}
+
+.blueprint-stat-card.highlight .b-tag {
+  color: #ffd700;
+}
+
+.b-num {
+  font-family: var(--font-en);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+}
+
+.b-label {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Study Plan Modal */
+.study-plan-dialog {
+  max-width: 950px !important;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.semester-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.semester-block {
+  background: rgba(10, 1, 3, 0.85);
+  border: 1px solid rgba(255, 23, 68, 0.25);
+  border-radius: 12px;
+  padding: 1.2rem;
+}
+
+.semester-title {
+  font-family: var(--font-en);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #ff4d6d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 23, 68, 0.2);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.semester-title span.sem-credits {
+  font-size: 0.78rem;
+  background: rgba(255, 23, 68, 0.18);
+  color: #ff8599;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.sem-course-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.84rem;
+  margin-bottom: 0.55rem;
+  line-height: 1.45;
+  color: #e2e8f0;
+}
+
+.sem-course-code {
+  font-family: var(--font-code);
+  font-size: 0.74rem;
+  color: #ff8599;
+  background: rgba(255, 23, 68, 0.12);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  flex-shrink: 0;
 }
 
 .faculty-to-space-hint {

@@ -1,7 +1,19 @@
 {
   "generalInfo": {
-    "siteTitle": "วิศวกรรมซอฟต์แวร์ มหาวิทยาลัยราชภัฏศรีสะเกษ",
-    "slogan": "Build Your Future สร้างไอเดีย สร้างระบบ สร้างอนาคต",
+    "siteTitle": "วิศวกรรมซอฟต์แวร์และปัญญาประดิษฐ์ มหาวิทยาลัยราชภัฏศรีสะเกษ",
+    "slogan": "AI-First Approach // Build Your Future: สร้างระบบ ขับเคลื่อนอนาคตด้วย AI",
+    "programCode": "25561631100014",
+    "degreeThFull": "วิศวกรรมศาสตรบัณฑิต (วิศวกรรมซอฟต์แวร์และปัญญาประดิษฐ์)",
+    "degreeThShort": "วศ.บ. (วิศวกรรมซอฟต์แวร์และปัญญาประดิษฐ์)",
+    "degreeEnFull": "Bachelor of Engineering (Software Engineering and Artificial Intelligence)",
+    "degreeEnShort": "B.Eng. (Software Engineering and Artificial Intelligence)",
+    "revisionYear": "2569",
+    "creditsTotal": 121,
+    "creditsGeneral": 24,
+    "creditsCore": 69,
+    "creditsElective": 15,
+    "creditsCWIE": 7,
+    "creditsFree": 6,
     "studentsCount": 180,
     "facultyCount": 5,
     "labCount": 4,
@@ -9,138 +21,183 @@
     "phone": "045-643-600",
     "email": "se@sskru.ac.th",
     "facebook": "https://facebook.com/se.sskru",
-    "address": "สาขาวิชาวิศวกรรมซอฟต์แวร์ คณะศิลปศาสตร์และวิทยาศาสตร์ มหาวิทยาลัยราชภัฏศรีสะเกษ ถ.ไทยพันทา อ.เมือง จ.ศรีสะเกษ 33000"
+    "address": "สาขาวิชาวิศวกรรมซอฟต์แวร์และปัญญาประดิษฐ์ คณะศิลปศาสตร์และวิทยาศาสตร์ มหาวิทยาลัยราชภัฏศรีสะเกษ ถ.ไทยพันทา อ.เมือง จ.ศรีสะเกษ 33000",
+    "philosophy": "ผลิตวิศวกรซอฟต์แวร์ที่สามารถใช้ปัญญาประดิษฐ์ในการพัฒนาซอฟต์แวร์อย่างปลอดภัย มีทักษะการสื่อสาร ทำงานเป็นทีม และยึดมั่นในจริยธรรมการใช้เทคโนโลยีปัญญาประดิษฐ์อย่างรับผิดชอบ"
   },
   "curriculum": [
     {
       "id": "c-1",
-      "icon": "💻",
-      "nameEn": "Programming",
-      "nameTh": "การเขียนโปรแกรม",
-      "description": "เรียนรู้ภาษา Python, JavaScript, TypeScript, C++, Java ปูพื้นฐาน Logic และ Problem Solving สู่การเป็นนักพัฒนาซอฟต์แวร์มืออาชีพ",
-      "category": "Core"
+      "icon": "🧠",
+      "code": "4121507",
+      "nameEn": "AI for Software Engineering",
+      "nameTh": "ปัญญาประดิษฐ์สำหรับวิศวกรรมซอฟต์แวร์",
+      "description": "เรียนรู้การประยุกต์ใช้ AI ในกระบวนการพัฒนาซอฟต์แวร์ (SDLC), Prompt Engineering, การใช้ Generative AI ช่วยวิเคราะห์ ออกแบบ และเขียนโค้ด",
+      "category": "AI & Core"
     },
     {
       "id": "c-2",
-      "icon": "📐",
-      "nameEn": "Software Design",
-      "nameTh": "การออกแบบซอฟต์แวร์",
-      "description": "Design Patterns, Clean Architecture, UML, Microservices สถาปัตยกรรมซอฟต์แวร์ที่รองรับการขยายตัวระดับองค์กร",
-      "category": "Core"
+      "icon": "🌐",
+      "code": "4122217",
+      "nameEn": "AI for Web Development",
+      "nameTh": "ปัญญาประดิษฐ์สำหรับการพัฒนาเว็บ",
+      "description": "การใช้ AI Fast-Prototyping, เขียน HTML/CSS/JS ด้วย AI Assistance, การ Debug โค้ดอัตโนมัติ และการสร้าง Web API ร่วมกับ AI Models",
+      "category": "AI & Web"
     },
     {
       "id": "c-3",
-      "icon": "🎨",
-      "nameEn": "UX/UI Design",
-      "nameTh": "การออกแบบประสบการณ์ผู้ใช้",
-      "description": "Design Thinking, Figma, Wireframing, Prototyping และการทำ Usability Testing เพื่อสร้างชิ้นงานที่ตอบโจทย์ผู้ใช้งานจริง",
-      "category": "Design"
+      "icon": "⚡",
+      "code": "4123670",
+      "nameEn": "Full Stack Web Development",
+      "nameTh": "การพัฒนาเว็บฟูลสแต็ก",
+      "description": "เชื่อมโยง Frontend และ Backend สู่ระบบจริง การจัดการ State, RESTful / GraphQL API, Authentication และระบบจัดการข้อมูลแบบ Real-time",
+      "category": "Full-Stack"
     },
     {
       "id": "c-4",
-      "icon": "🗄️",
-      "nameEn": "Database Systems",
-      "nameTh": "ฐานข้อมูลและคลังข้อมูล",
-      "description": "SQL (PostgreSQL, MySQL), NoSQL (MongoDB, Redis), Data Modeling, Query Optimization และการออกแบบฐานข้อมูลขนาดใหญ่",
-      "category": "Data"
+      "icon": "🚀",
+      "code": "4123672",
+      "nameEn": "Advanced Web with AI",
+      "nameTh": "การพัฒนาเว็บขั้นสูงด้วยปัญญาประดิษฐ์",
+      "description": "การสร้าง Intelligent Web Applications เชื่อมต่อโมเดลภาษาขนาดใหญ่ (LLMs), AI Agent Integration, Vector Database และ Semantic Search",
+      "category": "AI & Web"
     },
     {
       "id": "c-5",
-      "icon": "🧠",
-      "nameEn": "AI & Machine Learning",
-      "nameTh": "ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง",
-      "description": "Machine Learning, Deep Learning, Computer Vision, NLP และการนำ AI / LLM มาประยุกต์ใช้ในแอปพลิเคชันยุคใหม่",
-      "category": "Advanced"
+      "icon": "🎨",
+      "code": "4121208",
+      "nameEn": "UI/UX Design",
+      "nameTh": "การออกแบบส่วนต่อประสานและประสบการณ์ผู้ใช้",
+      "description": "Design Thinking, User Journey, Wireframing, Figma Prototyping, การออกแบบ Human-AI Interaction และ Usability Testing",
+      "category": "Design"
     },
     {
       "id": "c-6",
-      "icon": "📱",
-      "nameEn": "Web & Mobile Development",
-      "nameTh": "การพัฒนาเว็บและแอปพลิเคชันมือถือ",
-      "description": "Modern Frontend (React, Vue), Backend (Node.js, Go), Cross-platform Mobile (Flutter, React Native)",
-      "category": "Application"
+      "icon": "🗄️",
+      "code": "4121211",
+      "nameEn": "Requirements & Database",
+      "nameTh": "วิศวกรรมความต้องการและฐานข้อมูล",
+      "description": "การวิเคราะห์ Requirement ทางธุรกิจ, การออกแบบ Data Models (Relational SQL & NoSQL), การทำ Normalization และการบริหารความปลอดภัยข้อมูล",
+      "category": "Data"
     },
     {
       "id": "c-7",
-      "icon": "🛡️",
-      "nameEn": "Software Testing & QA",
-      "nameTh": "การทดสอบและประกันคุณภาพซอฟต์แวร์",
-      "description": "Unit Testing, Integration Testing, Automated E2E (Playwright, Cypress), CI/CD pipelines และมาตรฐานคุณภาพสากล",
-      "category": "Quality"
+      "icon": "📐",
+      "code": "4123669",
+      "nameEn": "Software Architecture & System Design",
+      "nameTh": "สถาปัตยกรรมซอฟต์แวร์และการออกแบบระบบ",
+      "description": "การออกแบบ Microservices, Cloud Architecture, Scalability, Design Patterns และ Clean Architecture เพื่อรองรับระบบขนาดใหญ่",
+      "category": "Architecture"
     },
     {
       "id": "c-8",
+      "icon": "🛡️",
+      "code": "4123668",
+      "nameEn": "Web Security & Info Protection",
+      "nameTh": "ความปลอดภัยเว็บและการรักษาข้อมูล",
+      "description": "OWASP Top 10, Data Encryption, HTTPS/SSL, Security Audit, การป้องกันช่องโหว่ทางไซเบอร์ และการรักษาความปลอดภัยของระบบ AI",
+      "category": "Security"
+    },
+    {
+      "id": "c-9",
+      "icon": "🧪",
+      "code": "4123671",
+      "nameEn": "AI for Web Testing",
+      "nameTh": "ปัญญาประดิษฐ์สำหรับการทดสอบเว็บ",
+      "description": "Automated Testing ด้วย AI, Unit & Integration Test Generation, E2E Testing, Performance & Load Test และการประกันคุณภาพซอฟต์แวร์ (QA)",
+      "category": "Testing"
+    },
+    {
+      "id": "c-10",
       "icon": "⚙️",
-      "nameEn": "Cloud & DevOps",
-      "nameTh": "การพัฒนาระบบคลาวด์และเดฟออปส์",
-      "description": "Docker, Kubernetes, AWS, Google Cloud, CI/CD, Infrastructure as Code และการดูแลรักษาระบบ Production 24/7",
-      "category": "System"
+      "code": "4124305",
+      "nameEn": "DevOps & Deployment Engineering",
+      "nameTh": "วิศวกรรมเดฟออปส์และการส่งมอบ",
+      "description": "CI/CD Pipelines, Docker Containers, Kubernetes, Cloud Deployment (AWS, GCP, VPS), Server Monitoring และ Automated Rollout",
+      "category": "DevOps"
+    },
+    {
+      "id": "c-11",
+      "icon": "⚖️",
+      "code": "4122116",
+      "nameEn": "AI Ethics & Data Privacy",
+      "nameTh": "จริยธรรมปัญญาประดิษฐ์และความเป็นส่วนตัวของข้อมูล",
+      "description": "หลักจริยธรรม AI, การป้องกัน Algorithm Bias, กฎหมาย PDPA, ลิขสิทธิ์ซอฟต์แวร์ และการพัฒนาเทคโนโลยีอย่างมีความรับผิดชอบต่อสังคม",
+      "category": "Ethics"
+    },
+    {
+      "id": "c-12",
+      "icon": "🏆",
+      "code": "6004801",
+      "nameEn": "Capstone Project & CWIE Co-op",
+      "nameTh": "โครงงานวิศวกรรมและสหกิจศึกษา",
+      "description": "สร้างสรรค์โครงงานนวัตกรรมซอฟต์แวร์และ AI ขนาดจริงแบบครบวงจร พร้อมปฏิบัติงานสหกิจศึกษาในองค์กรชั้นนำ 1 ภาคเรียนเต็ม",
+      "category": "Practical"
     }
   ],
   "faculty": [
     {
       "id": "f-1",
-      "name": "ผศ.ดร.รณชัย เจริญศิลป์",
-      "role": "หัวหน้าสาขาวิชาวิศวกรรมซอฟต์แวร์",
-      "specialty": "Software Architecture & Distributed Systems",
+      "name": "ดร.ปฏิมากร จริยฐิติพงศ์",
+      "role": "อาจารย์ผู้รับผิดชอบหลักสูตร",
+      "specialty": "วศ.ด. (วิศวกรรมคอมพิวเตอร์) จุฬาฯ • Data Structures & Software Architecture",
       "image": "/images/prof_sskr_1.jpg",
-      "email": "ronnachai.c@sskru.ac.th"
+      "email": "patimakorn.c@sskru.ac.th"
     },
     {
       "id": "f-2",
-      "name": "ผศ.ดร.กิตติพงศ์ บุญมา",
-      "role": "อาจารย์ประจำสาขาวิชา",
-      "specialty": "AI & Machine Learning / Data Science",
+      "name": "ดร.วรรธนะ พงษ์เสนา",
+      "role": "อาจารย์ผู้รับผิดชอบหลักสูตร",
+      "specialty": "วศ.ด. (วิศวกรรมโทรคมนาคมและคอมพิวเตอร์) มทส. • Deep Learning & Machine Learning",
       "image": "/images/prof_sskr_2.jpg",
-      "email": "kittipong.b@sskru.ac.th"
+      "email": "watthana.p@sskru.ac.th"
     },
     {
       "id": "f-3",
-      "name": "อ.ดร.ปิยวดี แสนคำ",
-      "role": "อาจารย์ประจำสาขาวิชา",
-      "specialty": "Web & Mobile Application / UX/UI",
+      "name": "ดร.ภาคภูมิ ชินพฤทธิวงศ์",
+      "role": "อาจารย์ผู้รับผิดชอบหลักสูตร",
+      "specialty": "Ph.D. (Computer Science) Texas A&M, USA • Cybersecurity & AI Network Systems",
       "image": "/images/prof_sskr_3.jpg",
-      "email": "piyawadee.s@sskru.ac.th"
+      "email": "phakpoom.c@sskru.ac.th"
     },
     {
       "id": "f-4",
-      "name": "ผศ.ดร.สุรศักดิ์ ภูมิพงศ์",
-      "role": "อาจารย์ประจำสาขาวิชา",
-      "specialty": "Database Systems & Cloud Infrastructure",
+      "name": "อาจารย์ศุภชัย ทองสุข",
+      "role": "อาจารย์ผู้รับผิดชอบหลักสูตร",
+      "specialty": "วท.ม. (วิศวกรรมซอฟต์แวร์) จุฬาฯ • Software Engineering, Full-Stack & DevOps",
       "image": "/images/prof_sskr_4.jpg",
-      "email": "surasak.p@sskru.ac.th"
+      "email": "supachai.t@sskru.ac.th"
     },
     {
       "id": "f-5",
-      "name": "อ.ดร.นพดล ไชยศรี",
-      "role": "อาจารย์ประจำสาขาวิชา",
-      "specialty": "Software Testing & Quality Assurance",
+      "name": "อาจารย์ชนินทร เรืองอุดมสกุล",
+      "role": "อาจารย์ผู้รับผิดชอบหลักสูตร",
+      "specialty": "วศ.ม. (วิศวกรรมคอมพิวเตอร์) มทส. • UX/UI Design & Web Information Systems",
       "image": "/images/prof_sskr_5.jpg",
-      "email": "noppadol.c@sskru.ac.th"
+      "email": "chanintorn.r@sskru.ac.th"
     }
   ],
   "announcements": [
     {
       "id": "a-1",
-      "title": "เปิดรับสมัครนักศึกษาใหม่ ประจำปีการศึกษา 2569 (รอบ Portfolio & โควตา)",
-      "content": "สาขาวิชาวิศวกรรมซอฟต์แวร์ มหาวิทยาลัยราชภัฏศรีสะเกษ เปิดรับสมัครผู้สำเร็จการศึกษาระดับ ม.6 / ปวช. หรือเทียบเท่า เข้าศึกษาต่อในหลักสูตรวิทยาศาสตรบัณฑิต (วท.บ. วิศวกรรมซอฟต์แวร์) สมัครได้ตั้งแต่วันนี้ผ่านระบบออนไลน์",
+      "title": "เปิดรับสมัครนักศึกษาใหม่ หลักสูตร วศ.บ. วิศวกรรมซอฟต์แวร์และปัญญาประดิษฐ์ (พ.ศ. 2569)",
+      "content": "สาขาวิชาวิศวกรรมซอฟต์แวร์และปัญญาประดิษฐ์ มหาวิทยาลัยราชภัฏศรีสะเกษ เปิดรับสมัครผู้สำเร็จการศึกษาระดับ ม.6 / ปวช. หรือเทียบเท่า เข้าศึกษาในหลักสูตรใหม่ พ.ศ. 2569 เน้น AI-First Approach และสหกิจศึกษา CWIE สมัครได้ผ่านระบบออนไลน์",
       "date": "2026-10-01",
-      "tag": "รับสมัคร",
+      "tag": "รับสมัคร 2569",
       "pinned": true
     },
     {
       "id": "a-2",
-      "title": "ขอแสดงความยินดีกับทีม SE-SSKRU คว้ารางวัลชนะเลิศการประกวดนวัตกรรมซอฟต์แวร์",
-      "content": "ทีมนักศึกษาวิศวกรรมซอฟต์แวร์ ชั้นปีที่ 3 และ 4 ได้รับรางวัลนวัตกรรมดีเด่นจากการแข่งขันประชันทักษะเทคโนโลยีดิจิทัลระดับภูมิภาค ด้วยผลงานระบบ AI Smart Farming",
-      "date": "2026-09-25",
-      "tag": "ผลงานนักศึกษา",
-      "pinned": false
+      "title": "เปิดตัวหลักสูตรปรับปรุง พ.ศ. 2569: วศ.บ. (วิศวกรรมซอฟต์แวร์และปัญญาประดิษฐ์) รวม 121 หน่วยกิต",
+      "content": "สภามหาวิทยาลัยราชภัฏศรีสะเกษ มีมติอนุมัติหลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมซอฟต์แวร์และปัญญาประดิษฐ์ (หลักสูตรปรับปรุง พ.ศ. 2569) ตอบโจทย์ตลาดแรงงานระดับสากลด้วยทักษะ Generative AI, DevOps และ Full-Stack",
+      "date": "2026-09-28",
+      "tag": "หลักสูตรใหม่",
+      "pinned": true
     },
     {
       "id": "a-3",
-      "title": "กิจกรรม Workshop: เจาะลึก Generative AI & Cloud Native Architecture",
-      "content": "ขอเชิญชวนนักศึกษาและผู้สนใจเข้าร่วมสัมมนาเชิงปฏิบัติการจากวิทยากรพิเศษผู้เชี่ยวชาญจากบริษัทเทคโนโลยีชั้นนำ ในวันที่ 15 ตุลาคม 2569 ณ ห้องปฏิบัติการคอมพิวเตอร์ SE Lab 1",
-      "date": "2026-09-18",
+      "title": "กิจกรรม Workshop: ก้าวสู่วิศวกรซอฟต์แวร์ยุค AI ด้วย Generative AI & Cloud Matrix",
+      "content": "ขอเชิญชวนนักศึกษาและผู้สนใจเข้าร่วมอบรมเชิงปฏิบัติการ การสร้าง AI-Powered Web Application โดยคณาจารย์ผู้เชี่ยวชาญ ณ ห้องปฏิบัติการคอมพิวเตอร์ SE & AI Lab",
+      "date": "2026-09-20",
       "tag": "กิจกรรม",
       "pinned": false
     }
