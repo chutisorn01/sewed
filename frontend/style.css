@@ -2193,19 +2193,15 @@ body {
 }
 
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
   .hero-main-title {
-    font-size: 2.8rem;
+    font-size: clamp(1.5rem, 5.5vw, 2.1rem);
   }
 
   .build-headline,
   .code-title,
   .warp-title,
   .future-title {
-    font-size: 2.2rem;
+    font-size: clamp(1.35rem, 5vw, 1.85rem);
   }
 
   .form-row {
@@ -3087,29 +3083,355 @@ body {
   }
 }
 
+@media (max-width: 1024px) {
+  .overlay-scene-3 {
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: stretch !important;
+  }
+}
+
 @media (max-width: 768px) {
-  .hud-headline {
-    font-size: 1.8rem;
+  /* iOS safari input auto-zoom prevent */
+  input, select, textarea {
+    font-size: 16px !important;
   }
 
-  .overlay-scene-3,
-  .overlay-scene-4,
-  .overlay-scene-5 {
-    padding-bottom: 1.8rem;
+  /* Common container spacing on mobile */
+  .container,
+  .hero-layout-overlay,
+  .cinematic-hud-layout,
+  .build-split-layout {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* STAGE 01: Hero */
+  .hero-main-title {
+    font-size: clamp(1.45rem, 5.2vw, 2.05rem) !important;
+    line-height: 1.15;
+    margin-bottom: 0.35rem;
+  }
+
+  .hero-slogan-cursive {
+    font-size: clamp(0.95rem, 3.4vw, 1.22rem) !important;
+    margin-bottom: 0.45rem;
+  }
+
+  .hero-desc {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    margin-bottom: 0.95rem;
+  }
+
+  .hero-desc strong {
+    font-size: 0.98rem;
+  }
+
+  .hero-cta-group {
+    gap: 0.6rem;
+  }
+
+  .hero-cta-group .btn {
+    padding: 0.52rem 1.15rem;
+    font-size: 0.84rem;
+  }
+
+  .scroll-drive-guide {
+    width: 92%;
+    max-width: 330px;
+    padding: 0.45rem 0.9rem;
+    gap: 0.65rem;
+    bottom: 1.2rem;
+  }
+
+  .guide-title {
+    font-size: 0.7rem;
+  }
+
+  .guide-sub {
+    font-size: 0.72rem;
+  }
+
+  /* STAGE 02: Creation & Assembly */
+  .build-split-layout {
+    gap: 1.2rem;
+  }
+
+  .build-tagline {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .build-headline {
+    font-size: clamp(1.35rem, 4.8vw, 1.85rem) !important;
+    margin-bottom: 0.35rem;
+  }
+
+  .build-sub {
+    font-size: 0.85rem;
+  }
+
+  .tech-stack-vertical {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.45rem !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    min-width: unset !important;
+    margin: 0 auto !important;
+  }
+
+  .tech-item-row {
+    padding: 0.45rem 0.75rem !important;
+    gap: 0.45rem !important;
+    border-radius: 8px !important;
+  }
+
+  .tech-title-en {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .tech-item-row:last-child {
+    grid-column: span 2;
+    justify-content: center;
+  }
+
+  /* STAGE 03: The Engine Room */
+  .overlay-scene-3 {
+    padding-bottom: 1.2rem !important;
+  }
+
+  .overlay-scene-3 .hud-headline {
+    font-size: clamp(1.35rem, 4.8vw, 1.75rem) !important;
+    margin-bottom: 0.25rem;
+  }
+
+  .overlay-scene-3 .hud-sub {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .code-stream-terminal-hud {
+    position: relative !important;
+    bottom: auto !important;
+    right: auto !important;
+    margin-top: 0.6rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 12px !important;
+  }
+
+  .term-top-bar {
+    padding: 0.35rem 0.65rem;
+  }
+
+  .term-title-mini {
+    font-size: 0.66rem;
+  }
+
+  .term-error-404-box {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.72rem;
+    gap: 0.45rem;
+  }
+
+  .err-pill-fix {
+    font-size: 0.62rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  .terminal-code-stream {
+    max-height: 105px;
+    padding: 0.4rem 0.65rem;
+  }
+
+  .c-row {
+    font-size: 0.7rem;
+    line-height: 1.35;
+  }
+
+  .term-compiler-stats {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.64rem;
+  }
+
+  /* STAGE 04: Warp Dimension */
+  .overlay-scene-4 {
+    padding-bottom: 1.4rem !important;
+  }
+
+  .overlay-scene-4 .hud-headline {
+    font-size: clamp(1.35rem, 4.8vw, 1.8rem) !important;
+    margin-bottom: 0.25rem;
+  }
+
+  .overlay-scene-4 .hud-sub {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
   }
 
   .horizontal-bottom-dock.neon-red {
-    gap: 0.65rem;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.45rem !important;
+    width: 100% !important;
+    margin-top: 0.35rem !important;
+    margin-bottom: 0 !important;
   }
 
   .dock-item.neon-red {
-    padding: 0.5rem 1rem;
-    gap: 0.55rem;
+    padding: 0.42rem 0.7rem !important;
+    gap: 0.45rem !important;
+    border-radius: 8px !important;
+    justify-content: flex-start !important;
+  }
+
+  .dock-icon {
+    font-size: 0.92rem !important;
   }
 
   .dock-text {
-    font-size: 0.82rem;
-    letter-spacing: 0.8px;
+    font-size: 0.74rem !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  /* STAGE 05: Careers & Future */
+  .overlay-scene-5 {
+    padding-bottom: 1.4rem !important;
+  }
+
+  .overlay-scene-5 .hud-headline {
+    font-size: clamp(1.3rem, 4.6vw, 1.7rem) !important;
+    margin-bottom: 0.25rem;
+  }
+
+  .overlay-scene-5 .hud-sub {
+    font-size: 0.82rem !important;
+    line-height: 1.4;
+    margin-bottom: 0.45rem;
+  }
+
+  .horizontal-bottom-dock.stage-careers-dock {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.38rem !important;
+    width: 100% !important;
+    margin-top: 0.35rem !important;
+  }
+
+  .stage-careers-dock .dock-item.neon-red {
+    padding: 0.35rem 0.65rem !important;
+    gap: 0.38rem !important;
+    border-radius: 8px !important;
+  }
+
+  .stage-careers-dock .dock-text {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.4px !important;
+  }
+
+  .next-campus-hint.neon-red {
+    padding: 0.32rem 0.8rem !important;
+    font-size: 0.75rem !important;
+    margin-top: 0.4rem !important;
+    border-radius: 16px !important;
+  }
+
+  /* HUD Stage Badge Common */
+  .hud-stage-badge {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Blueprint Stats Banner */
+  .blueprint-stats-banner {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
+    margin: 1.4rem 0 1.8rem !important;
+  }
+
+  .blueprint-stat-card {
+    padding: 0.85rem 0.95rem !important;
+    border-radius: 10px !important;
+  }
+
+  .b-tag {
+    font-size: 0.66rem !important;
+  }
+
+  .b-num {
+    font-size: 1.65rem !important;
+  }
+
+  .b-label {
+    font-size: 0.72rem !important;
+  }
+
+  /* Study Plan Dialog */
+  .study-plan-dialog {
+    width: 95% !important;
+    padding: 1.2rem 1rem !important;
+  }
+
+  .semester-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+
+  .semester-block {
+    padding: 0.85rem !important;
+  }
+
+  .sem-course-item {
+    font-size: 0.78rem !important;
+  }
+
+  .section-top-row {
+    margin-bottom: 1.8rem !important;
+  }
+
+  .section-title-white {
+    font-size: clamp(1.4rem, 5vw, 2rem) !important;
+  }
+
+  .section-subtitle-red {
+    font-size: 0.88rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .hero-layout-overlay,
+  .cinematic-hud-layout,
+  .build-split-layout {
+    padding-left: 0.9rem !important;
+    padding-right: 0.9rem !important;
+  }
+
+  .hero-main-title {
+    font-size: clamp(1.35rem, 5.8vw, 1.75rem) !important;
+  }
+
+  .build-headline {
+    font-size: clamp(1.25rem, 5.2vw, 1.6rem) !important;
+  }
+
+  .overlay-scene-3 .hud-headline,
+  .overlay-scene-4 .hud-headline,
+  .overlay-scene-5 .hud-headline {
+    font-size: clamp(1.2rem, 5vw, 1.55rem) !important;
+  }
+
+  .dock-item.neon-red {
+    padding: 0.36rem 0.6rem !important;
+  }
+
+  .dock-text {
+    font-size: 0.7rem !important;
   }
 }
 
