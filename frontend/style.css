@@ -640,12 +640,12 @@ body {
 
 .hero-main-title {
   font-family: var(--font-en);
-  font-size: 4.2rem;
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
   font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -1px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
   color: #ffffff;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.45rem;
   -webkit-text-stroke: 0px;
   text-shadow:
     0 2px 4px #000000,
@@ -656,10 +656,10 @@ body {
 .hero-slogan-cursive {
   font-family: var(--font-en);
   font-style: italic;
-  font-size: 2.2rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
   font-weight: 700;
   color: #ffe600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
   -webkit-text-stroke: 0px;
   text-shadow:
     0 2px 4px #000000,
@@ -668,11 +668,11 @@ body {
 }
 
 .hero-desc {
-  font-size: 1.2rem;
+  font-size: clamp(0.92rem, 1.2vw, 1.05rem);
   color: #ffffff;
   font-weight: 500;
-  line-height: 1.7;
-  margin-bottom: 2.4rem;
+  line-height: 1.55;
+  margin-bottom: 1.35rem;
   max-width: 560px;
   text-shadow:
     0 1px 3px #000000,
@@ -682,7 +682,7 @@ body {
 
 .hero-desc strong {
   color: #ffffff;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 700;
   text-shadow:
     0 1px 3px #000000,
@@ -692,7 +692,7 @@ body {
 
 .hero-cta-group {
   display: flex;
-  gap: 1.2rem;
+  gap: 0.9rem;
   flex-wrap: wrap;
 }
 
@@ -2440,7 +2440,7 @@ body {
 
 .build-headline {
   font-family: var(--font-en);
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
   font-weight: 900;
   line-height: 1.15;
   color: #ffffff;
@@ -2449,18 +2449,18 @@ body {
     0 2px 4px #000000,
     0 4px 14px rgba(0, 0, 0, 0.95),
     0 0 28px rgba(0, 0, 0, 0.9);
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
 }
 
 .build-sub {
-  font-size: 1.2rem;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
   color: #ffffff;
   font-weight: 500;
   text-shadow:
     0 2px 4px #000000,
     0 3px 10px rgba(0, 0, 0, 0.95),
     0 0 20px rgba(0, 0, 0, 0.9);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .build-list-col {
@@ -2611,23 +2611,23 @@ body {
    =================================================== */
 .overlay-scene-3 {
   align-items: flex-end !important;
-  padding-bottom: 3.5rem;
+  padding-bottom: 2rem;
 }
 
 .overlay-scene-3 .hud-text-box {
-  max-width: 580px;
-  margin-bottom: 0.5rem;
+  max-width: 540px;
+  margin-bottom: 0.3rem;
 }
 
 .overlay-scene-3 .hud-headline {
-  font-size: 2.3rem;
+  font-size: clamp(1.8rem, 3.2vw, 2.3rem);
   line-height: 1.15;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .overlay-scene-3 .hud-sub {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
 }
 
 .cinematic-hud-layout {
@@ -2731,9 +2731,9 @@ body {
    =================================================== */
 .code-stream-terminal-hud {
   position: absolute;
-  bottom: 2.8rem;
-  right: 2.5rem;
-  width: 380px;
+  bottom: 2rem;
+  right: 2.2rem;
+  width: 340px;
   max-width: calc(100vw - 3rem);
   background: rgba(14, 2, 5, 0.94);
   border: 1px solid rgba(255, 23, 68, 0.65);
@@ -2952,7 +2952,7 @@ body {
 .overlay-scene-4,
 .overlay-scene-5 {
   align-items: flex-end !important;
-  padding-bottom: 3.5rem;
+  padding-bottom: 2rem !important;
 }
 
 .overlay-scene-4 .hud-text-box,
@@ -2963,16 +2963,17 @@ body {
 
 .overlay-scene-4 .hud-headline,
 .overlay-scene-5 .hud-headline {
-  font-size: 2.5rem;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
   line-height: 1.15;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.35rem;
 }
 
 .overlay-scene-4 .hud-sub,
 .overlay-scene-5 .hud-sub {
-  font-size: 1.15rem;
-  margin-bottom: 1.25rem;
-  max-width: 650px;
+  font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+  margin-bottom: 0.65rem;
+  max-width: 680px;
+  line-height: 1.45;
 }
 
 /* Horizontal Bottom Dock - Stretched wide across the bottom */
@@ -2980,23 +2981,23 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 0.8rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
 }
 
 .dock-item.neon-red {
   display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.6rem;
   background: linear-gradient(145deg, rgba(26, 3, 8, 0.94) 0%, rgba(14, 2, 5, 0.95) 100%);
   border: 1.5px solid rgba(255, 23, 68, 0.65);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  padding: 0.75rem 1.6rem;
-  border-radius: 12px;
+  padding: 0.5rem 1.15rem;
+  border-radius: 10px;
   box-shadow:
     0 8px 24px rgba(0, 0, 0, 0.8),
     0 0 16px rgba(255, 23, 68, 0.3);
@@ -3006,7 +3007,7 @@ body {
 }
 
 .dock-item.neon-red:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: #ff1744;
   background: rgba(38, 4, 11, 0.96);
   box-shadow:
@@ -3015,26 +3016,26 @@ body {
 }
 
 .dock-dot-red {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #ff1744;
-  box-shadow: 0 0 8px #ff1744, 0 0 16px #ff1744;
+  box-shadow: 0 0 8px #ff1744, 0 0 14px #ff1744;
   flex-shrink: 0;
   animation: auraPulse 1.8s infinite;
 }
 
 .dock-icon {
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   line-height: 1;
   filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.5));
 }
 
 .dock-text {
   font-family: var(--font-en);
-  font-size: 1rem;
+  font-size: 0.84rem;
   font-weight: 800;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   color: #ffffff;
   text-shadow:
     0 2px 4px #000000,
@@ -3049,20 +3050,21 @@ body {
     0 0 15px rgba(255, 23, 68, 0.95);
 }
 
-/* Campus Navigation Hint on Stage 5 */
 .next-campus-hint.neon-red {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 0.95rem;
+  gap: 0.65rem;
+  font-size: 0.85rem;
   color: #ffffff;
   background: rgba(26, 3, 8, 0.85);
   border: 1px dashed rgba(255, 23, 68, 0.75);
-  padding: 0.55rem 1.4rem;
-  border-radius: 30px;
-  margin-top: 1.25rem;
+  padding: 0.45rem 1.15rem;
+  border-radius: 20px;
+  margin-top: 0.65rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 18px rgba(255, 23, 68, 0.35);
+  cursor: pointer;
   width: fit-content;
+  transition: all 0.3s ease;
 }
 
 .down-arrow-hint.red {
