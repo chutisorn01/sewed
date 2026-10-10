@@ -28,7 +28,7 @@
 [Apache2 Web Server (Reverse Proxy)]
        │ (ProxyPass ไปยัง localhost:5005)
        ▼
-[Node.js Express Server (PM2 Process: "sewed")] ──▶ [backend/db.json]
+[Node.js Express Server (PM2 Process: "seweb")] ──▶ [backend/db.json]
        ├── /api/*          (REST API: CRUD, Auth, Uploads)
        └── /*              (Static Files: frontend/dist/index.html & admin.html)
 ```
@@ -52,10 +52,10 @@
 | **โดเมนใช้งานจริง** | `seai.sci-sskru.com` |
 | **โดเมนหลัก (Apex)** | `sci-sskru.com` (จัดการผ่าน Cloudflare) |
 | **โฮสต์เซิร์ฟเวอร์** | Ubuntu 24.04 LTS (Oracle Cloud aarch64) |
-| **ไดเรกทอรีโปรเจกต์บนเซิร์ฟเวอร์** | `/home/ubuntu/project/sewed` |
-| **GitHub Repository** | `https://github.com/chutisorn01/sewed.git` |
+| **ไดเรกทอรีโปรเจกต์บนเซิร์ฟเวอร์** | `/home/ubuntu/project/seweb` |
+| **GitHub Repository** | `https://github.com/chutisorn01/seweb.git` |
 | **พอร์ตภายใน (Internal Port)** | `5005` (`http://localhost:5005`) |
-| **ชื่อโปรเซส PM2** | `sewed` |
+| **ชื่อโปรเซส PM2** | `seweb` |
 | **เว็บเซิร์ฟเวอร์หลัก** | **Apache2** |
 
 ---
@@ -65,8 +65,8 @@
 ### ขั้นตอนที่ 1: เตรียมโปรเจกต์บนเซิร์ฟเวอร์
 ```bash
 cd ~/project
-git clone https://github.com/chutisorn01/sewed.git
-cd sewed
+git clone https://github.com/chutisorn01/seweb.git
+cd seweb
 
 # ติดตั้ง dependencies และ build frontend + backend ด้วยคำสั่งเดียว
 npm run build
@@ -74,7 +74,7 @@ npm run build
 
 ### ขั้นตอนที่ 2: สั่งให้ PM2 รันระบบเบื้องหลัง
 ```bash
-pm2 start backend/server.js --name "sewed"
+pm2 start backend/server.js --name "seweb"
 pm2 save
 ```
 
@@ -135,10 +135,10 @@ sudo systemctl restart apache2
 เมื่อแก้ไขโค้ดบนเครื่อง Local และ Push ขึ้น GitHub เรียบร้อยแล้ว บนเซิร์ฟเวอร์ให้รันเพียง 3 คำสั่งนี้:
 
 ```bash
-cd ~/project/sewed
+cd ~/project/seweb
 git pull origin main
 npm run build
-pm2 restart sewed
+pm2 restart seweb
 ```
 
 ---
@@ -149,9 +149,9 @@ pm2 restart sewed
   ```bash
   pm2 status
   ```
-- **ดู Real-time Log ของโปรเจกต์ `sewed`**:
+- **ดู Real-time Log ของโปรเจกต์ `seweb`**:
   ```bash
-  pm2 logs sewed --lines 50
+  pm2 logs seweb --lines 50
   ```
 - **ดู Log ข้อผิดพลาดของ Apache2**:
   ```bash
