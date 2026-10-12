@@ -1870,7 +1870,8 @@ body {
   background: rgba(14, 1, 4, 0.88);
   border: 1px solid rgba(255, 23, 68, 0.45);
   border-radius: 18px;
-  padding: 1.6rem 1rem;
+  padding: 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1890,37 +1891,37 @@ body {
 
 .prof-portrait-wrap {
   width: 100%;
-  aspect-ratio: 1 / 1.08;
-  border-radius: 10px;
+  aspect-ratio: 1 / 1.05;
   overflow: hidden;
-  border: 1.5px solid rgba(255, 23, 68, 0.55);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 16px rgba(255, 23, 68, 0.25);
+  border: none;
+  border-bottom: 1.5px solid rgba(255, 23, 68, 0.45);
+  box-shadow: none;
   margin-bottom: 1.15rem;
   flex-shrink: 0;
   position: relative;
   background: #080103;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .prof-pic {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sskr-faculty-card:hover .prof-portrait-wrap {
-  border-color: #ff1744;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 23, 68, 0.55);
+  object-position: center 15%;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sskr-faculty-card:hover .prof-pic {
-  transform: scale(1.05);
+  transform: scale(1.06);
+}
+
+.sskr-faculty-card > :not(.prof-portrait-wrap) {
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
+  width: 100%;
 }
 
 .prof-name {
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   font-weight: 800;
   color: #ffffff;
   margin-bottom: 0.35rem;
@@ -1930,12 +1931,19 @@ body {
 .prof-role {
   font-size: 0.76rem;
   color: #ffccd5;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.85rem;
 }
 
 .prof-badge-specialty {
   margin-top: auto;
+  margin-bottom: 0.85rem;
   width: 100%;
+}
+
+.prof-email {
+  font-size: 0.76rem;
+  color: #94a3b8;
+  margin-bottom: 1.4rem;
 }
 
 .prof-badge-specialty span {
