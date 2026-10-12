@@ -2264,6 +2264,8 @@ body {
   object-fit: cover;
   pointer-events: none;
   z-index: 1;
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.06) brightness(1.02);
 }
 
 /* Space Backdrop Layer (space.png - Orbital Station Over Earth) */
