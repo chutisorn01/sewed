@@ -73,15 +73,18 @@
     <section id="video-track" class="video-scrolly-track">
       <!-- Sticky Window pinned for 300vh of scroll -->
       <div class="video-sticky-viewport">
-        <!-- The user actual MP4 video -->
+        <!-- The user actual video (se.mp4 / se.MOV) -->
         <video 
           id="scrolly-video" 
-          src="/videos/Scroll.mp4" 
+          src="/videos/se.mp4" 
           playsinline 
           muted 
           preload="auto" 
           class="scrolly-video-player"
-        ></video>
+        >
+          <source src="/videos/se.mp4" type="video/mp4">
+          <source src="/videos/se.MOV" type="video/quicktime">
+        </video>
 
         <!-- Dark Gradient Vignette for text readability -->
         <div class="video-vignette-overlay"></div>
