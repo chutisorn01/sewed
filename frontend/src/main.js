@@ -31,7 +31,18 @@ function initMain() {
   const hudPct = document.getElementById("hud-pct");
   const timeLabel = document.querySelector(".time-label");
 
-  let duration = 14.0;
+  const DESKTOP_VIDEO = "/videos/se2.mp4";
+  const MOBILE_VIDEO = "/videos/phonese.MP4";
+
+  function isMobileViewport() {
+    return window.innerWidth <= 768 || window.matchMedia("(max-width: 768px)").matches;
+  }
+
+  function getAppropriateVideoSrc() {
+    return isMobileViewport() ? MOBILE_VIDEO : DESKTOP_VIDEO;
+  }
+
+  let duration = 10.0;
   let targetTime = 0;
   let isSeeking = false;
   let pendingSeek = false;
@@ -40,6 +51,13 @@ function initMain() {
   if (video) {
     video.muted = true;
     video.playsInline = true;
+
+    // Detect device and explicitly set responsive source
+    const targetSrc = getAppropriateVideoSrc();
+    if (!video.src || !video.src.includes(targetSrc)) {
+      video.src = targetSrc;
+      video.load();
+    }
 
     const initVideo = () => {
       if (video.duration && !isNaN(video.duration)) {
@@ -72,6 +90,23 @@ function initMain() {
     };
     window.addEventListener("wheel", primeOnInteraction, { passive: true, once: true });
     window.addEventListener("touchstart", primeOnInteraction, { passive: true, once: true });
+
+    // Seamlessly swap video if window crosses mobile/desktop breakpoint or rotates
+    let currentMode = isMobileViewport() ? "mobile" : "desktop";
+    window.addEventListener("resize", () => {
+      const newMode = isMobileViewport() ? "mobile" : "desktop";
+      if (newMode !== currentMode) {
+        currentMode = newMode;
+        const newSrc = getAppropriateVideoSrc();
+        const currentProgress = duration > 0 ? (video.currentTime / duration) : 0;
+        video.src = newSrc;
+        video.load();
+        video.addEventListener("loadedmetadata", () => {
+          duration = video.duration || 10.0;
+          requestSeek(currentProgress * duration);
+        }, { once: true });
+      }
+    }, { passive: true });
   }
 
   function requestSeek(time) {
