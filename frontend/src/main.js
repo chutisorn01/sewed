@@ -187,6 +187,10 @@ function initMain() {
     if (timeLabel) {
       timeLabel.textContent = seekTime.toFixed(1) + "s / " + duration.toFixed(1) + "s";
     }
+    const mobileTime = document.querySelector(".mobile-time-label");
+    if (mobileTime) {
+      mobileTime.textContent = seekTime.toFixed(1) + "s / " + duration.toFixed(1) + "s";
+    }
 
     // Dynamic HUD Stage Name
     if (hudStageName) {
@@ -517,6 +521,7 @@ function initMain() {
 
       isSoundPlaying = true;
       soundBtn?.classList.add("playing");
+      document.getElementById("mobile-sound-btn")?.classList.add("playing");
     } catch (e) {
       console.warn("Audio Context:", e);
     }
@@ -536,12 +541,16 @@ function initMain() {
     }
     isSoundPlaying = false;
     soundBtn?.classList.remove("playing");
+    document.getElementById("mobile-sound-btn")?.classList.remove("playing");
   };
 
-    soundBtn?.addEventListener("click", () => {
+  const toggleSound = () => {
     if (!isSoundPlaying) startAmbientSound();
     else stopAmbientSound();
-  });
+  };
+
+  soundBtn?.addEventListener("click", toggleSound);
+  document.getElementById("mobile-sound-btn")?.addEventListener("click", toggleSound);
 }
 
 if (document.readyState === "loading") {
