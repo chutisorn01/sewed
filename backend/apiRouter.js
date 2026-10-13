@@ -564,3 +564,64 @@ apiRouter.delete("/contacts/:id", requireAdmin, (req, res) => {
   saveDb(db);
   res.json({ success: true, message: "Deleted successfully" });
 });
+
+// ----------------------------------------------------
+// 8. FILE & IMAGE UPLOAD (CMS MEDIA STORAGE)
+// Requires Admin Authentication
+// ----------------------------------------------------
+apiRouter.post("/upload", requireAdmin, (req, res) => {
+  try {
+    const { filename, data } = req.body;
+    if (!filename || !data) {
+      return res.status(400).json({ success: false, message: "กรุณาส่งชื่อไฟล์และข้อมูลรูปภาพ" });
+    }
+
+    // Extract base64
+    let buffer;
+    const matches = data.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+    if (matches && matches.length === 3) {
+      buffer = Buffer.from(matches[2], "base64");
+    } else {
+      buffer = Buffer.from(data, "base64");
+    }
+
+    // Clean extension and filename
+    const ext = path.extname(filename).toLowerCase() || ".webp";
+    const baseName = path.basename(filename, ext).replace(/[^a-zA-Z0-9_\-\u0E00-\u0E7F]/g, "_");
+    const safeFilename = `${Date.now()}_${baseName}${ext}`;
+
+    const targetDirs = [
+      path.join(__dirname, "../frontend/public/images"),
+      path.join(__dirname, "../frontend/dist/images")
+    ];
+    if (fs.existsSync(path.join(__dirname, "../dist"))) {
+      targetDirs.push(path.join(__dirname, "../dist/images"));
+    }
+
+    for (const dir of targetDirs) {
+      try {
+        if (!fs.existsSync(dir)) {
+          fs.mkdirSync(dir, { recursive: true });
+        }
+        fs.writeFileSync(path.join(dir, safeFilename), buffer);
+      } catch (err) {
+        console.warn(`Could not save uploaded file to ${dir}:`, err.message);
+      }
+    }
+
+    const publicUrl = `/images/${safeFilename}`;
+    res.json({
+      success: true,
+      url: publicUrl,
+      filename: safeFilename,
+      message: "อัปโหลดรูปภาพสำเร็จ"
+    });
+  } catch (error) {
+    console.error("Upload handler error:", error);
+    res.status(500).json({
+      success: false,
+      message: "เกิดข้อผิดพลาดในการอัปโหลดรูปภาพ: " + error.message
+    });
+  }
+});
+

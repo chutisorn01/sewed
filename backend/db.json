@@ -140,7 +140,7 @@
       "name": "ดร.ปฏิมากร จริยฐิติพงศ์",
       "role": "อาจารย์ผู้รับผิดชอบหลักสูตร",
       "specialty": "วศ.ด. (วิศวกรรมคอมพิวเตอร์) จุฬาฯ • Data Structures & Software Architecture",
-      "image": "/images/prof_sskr_1.jpg",
+      "image": "/images/oau.WEBP",
       "email": "patimakorn.c@sskru.ac.th"
     },
     {
@@ -148,7 +148,7 @@
       "name": "ดร.วรรธนะ พงษ์เสนา",
       "role": "อาจารย์ผู้รับผิดชอบหลักสูตร",
       "specialty": "วศ.ด. (วิศวกรรมโทรคมนาคมและคอมพิวเตอร์) มทส. • Deep Learning & Machine Learning",
-      "image": "/images/prof_sskr_2.jpg",
+      "image": "/images/otea.WEBP",
       "email": "watthana.p@sskru.ac.th"
     },
     {
@@ -156,7 +156,7 @@
       "name": "ดร.ภาคภูมิ ชินพฤทธิวงศ์",
       "role": "อาจารย์ผู้รับผิดชอบหลักสูตร",
       "specialty": "Ph.D. (Computer Science) Texas A&M, USA • Cybersecurity & AI Network Systems",
-      "image": "/images/prof_sskr_3.jpg",
+      "image": "/images/otar.WEBP",
       "email": "phakpoom.c@sskru.ac.th"
     },
     {
@@ -164,7 +164,7 @@
       "name": "อาจารย์ศุภชัย ทองสุข",
       "role": "อาจารย์ผู้รับผิดชอบหลักสูตร",
       "specialty": "วท.ม. (วิศวกรรมซอฟต์แวร์) จุฬาฯ • Software Engineering, Full-Stack & DevOps",
-      "image": "/images/prof_sskr_4.jpg",
+      "image": "/images/oboy.WEBP",
       "email": "supachai.t@sskru.ac.th"
     },
     {
@@ -172,7 +172,7 @@
       "name": "อาจารย์ชนินทร เรืองอุดมสกุล",
       "role": "อาจารย์ผู้รับผิดชอบหลักสูตร",
       "specialty": "วศ.ม. (วิศวกรรมคอมพิวเตอร์) มทส. • UX/UI Design & Web Information Systems",
-      "image": "/images/prof_sskr_5.jpg",
+      "image": "/images/otal.WEBP",
       "email": "chanintorn.r@sskru.ac.th"
     }
   ],

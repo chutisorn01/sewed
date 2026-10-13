@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <script type="module" crossorigin src="/assets/admin-YfMKhO2w.js"></script>
+  <script type="module" crossorigin src="/assets/admin-Cix_PHuM.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-P2Xu9kJm.js">
   <link rel="stylesheet" crossorigin href="/assets/admin-jvBOIvpo.css">
 </head>
@@ -264,8 +264,21 @@
                 <input type="email" id="input-fac-email" class="form-control no-icon" placeholder="teacher@sskru.ac.th">
               </div>
               <div class="form-group span-2">
-                <label class="form-label">ลิงก์รูปภาพ (URL หรือ /images/...)</label>
-                <input type="text" id="input-fac-image" class="form-control no-icon" value="/images/prof_sskr_1.jpg">
+                <label class="form-label" style="display: flex; justify-content: space-between; align-items: center;">
+                  <span>รูปภาพอาจารย์</span>
+                  <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">รองรับ .WEBP, .JPG, .PNG</span>
+                </label>
+                <div style="display: flex; gap: 0.85rem; align-items: center; margin-bottom: 0.6rem;">
+                  <img id="input-fac-preview" src="/images/oau.WEBP" alt="Preview" style="width: 56px; height: 56px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0,0,0,0.06); background: #f8fafc;" onerror="this.src='/images/prof_sskr_1.jpg'">
+                  <div style="flex: 1; display: flex; flex-direction: column; gap: 0.35rem;">
+                    <label class="btn-secondary" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; cursor: pointer; padding: 0.45rem 0.85rem; font-size: 0.85rem; border-radius: 6px; width: fit-content; margin: 0;">
+                      📁 เลือกไฟล์รูปภาพจากเครื่อง
+                      <input type="file" id="input-fac-file" accept="image/*" style="display: none;">
+                    </label>
+                    <span id="input-fac-upload-status" style="font-size: 0.75rem; color: var(--text-muted);">เลือกไฟล์รูปจากเครื่องเพื่ออัปโหลดอัตโนมัติ หรือพิมพ์ URL ด้านล่าง</span>
+                  </div>
+                </div>
+                <input type="text" id="input-fac-image" class="form-control no-icon" value="/images/oau.WEBP" placeholder="/images/oau.WEBP">
               </div>
               <div class="span-full" style="display: flex; justify-content: flex-end;">
                 <button type="submit" class="btn-submit-action">+ บันทึกข้อมูลอาจารย์</button>

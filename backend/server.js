@@ -12,7 +12,8 @@ const app = express();
 const PORT = process.env.PORT || 5005;
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: "25mb" }));
+app.use(express.urlencoded({ extended: true, limit: "25mb" }));
 
 // API endpoints
 app.use("/api", apiRouter);
@@ -22,6 +23,12 @@ const candidateDist1 = path.join(__dirname, "../frontend/dist");
 const candidateDist2 = path.join(__dirname, "../dist");
 const distPath = fs.existsSync(candidateDist1) ? candidateDist1 : candidateDist2;
 app.use(express.static(distPath));
+
+// Also serve frontend/public directly for static uploaded media
+const publicDir = path.join(__dirname, "../frontend/public");
+if (fs.existsSync(publicDir)) {
+  app.use(express.static(publicDir));
+}
 
 // Fallback to index.html for client-side routing
 app.use((req, res) => {

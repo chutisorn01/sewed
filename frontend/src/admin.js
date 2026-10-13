@@ -86,6 +86,39 @@ async function authFetch(url, options = {}) {
   return res;
 }
 
+// Helper: Upload image file to server
+async function uploadImageFile(file) {
+  if (!file) throw new Error("ไม่ได้เลือกไฟล์");
+  if (file.size > 20 * 1024 * 1024) {
+    throw new Error("ขนาดไฟล์ใหญ่เกินไป (จำกัดไม่เกิน 20MB)");
+  }
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = async () => {
+      try {
+        const base64Data = reader.result;
+        const res = await authFetch("/api/upload", {
+          method: "POST",
+          body: JSON.stringify({
+            filename: file.name,
+            data: base64Data
+          })
+        });
+        const data = await res.json();
+        if (data.success && data.url) {
+          resolve(data.url);
+        } else {
+          reject(new Error(data.message || "อัปโหลดล้มเหลว"));
+        }
+      } catch (err) {
+        reject(err);
+      }
+    };
+    reader.onerror = () => reject(new Error("ไม่สามารถอ่านไฟล์ได้"));
+    reader.readAsDataURL(file);
+  });
+}
+
 function checkAuthState() {
   const token = getToken();
   const user = getUser();
@@ -568,11 +601,50 @@ function openEditModal(type, item) {
           <input type="email" id="edit-fac-email" class="form-control no-icon" value="${escapeHtml(item.email || '')}">
         </div>
         <div class="form-group span-2">
-          <label class="form-label">ลิงก์รูปภาพ (URL หรือ /images/...)</label>
-          <input type="text" id="edit-fac-image" class="form-control no-icon" value="${escapeHtml(item.image || '/images/prof_sskr_1.jpg')}">
+          <label class="form-label" style="display: flex; justify-content: space-between; align-items: center;">
+            <span>รูปภาพอาจารย์</span>
+            <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">รองรับ .WEBP, .JPG, .PNG</span>
+          </label>
+          <div style="display: flex; gap: 0.85rem; align-items: center; margin-bottom: 0.6rem;">
+            <img id="edit-fac-preview" src="${escapeHtml(item.image || '/images/oau.WEBP')}" alt="Preview" style="width: 56px; height: 56px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0,0,0,0.06); background: #f8fafc;" onerror="this.src='/images/prof_sskr_1.jpg'">
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 0.35rem;">
+              <label class="btn-secondary" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; cursor: pointer; padding: 0.45rem 0.85rem; font-size: 0.85rem; border-radius: 6px; width: fit-content; margin: 0;">
+                📁 เลือกไฟล์รูปภาพจากเครื่อง
+                <input type="file" id="edit-fac-file" accept="image/*" style="display: none;">
+              </label>
+              <span id="edit-fac-upload-status" style="font-size: 0.75rem; color: var(--text-muted);">เลือกไฟล์รูปจากเครื่องเพื่ออัปโหลดอัตโนมัติ หรือพิมพ์ URL ด้านล่าง</span>
+            </div>
+          </div>
+          <input type="text" id="edit-fac-image" class="form-control no-icon" value="${escapeHtml(item.image || '/images/oau.WEBP')}" placeholder="/images/oau.WEBP">
         </div>
       </div>
     `;
+
+    // Bind file upload for faculty edit modal
+    const fileInput = document.getElementById("edit-fac-file");
+    const imgInput = document.getElementById("edit-fac-image");
+    const previewImg = document.getElementById("edit-fac-preview");
+    const statusText = document.getElementById("edit-fac-upload-status");
+
+    imgInput?.addEventListener("input", (e) => {
+      if (previewImg) previewImg.src = e.target.value || "/images/prof_sskr_1.jpg";
+    });
+
+    fileInput?.addEventListener("change", async (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      if (statusText) statusText.textContent = "⏳ กำลังอัปโหลดรูปภาพ...";
+      try {
+        const url = await uploadImageFile(file);
+        if (imgInput) imgInput.value = url;
+        if (previewImg) previewImg.src = url;
+        if (statusText) statusText.textContent = `✅ อัปโหลดสำเร็จ: ${file.name}`;
+        showToast("อัปโหลดรูปภาพสำเร็จ!");
+      } catch (err) {
+        if (statusText) statusText.textContent = `❌ ${err.message}`;
+        showToast(err.message || "เกิดข้อผิดพลาดในการอัปโหลด", "error");
+      }
+    });
   } else if (type === "announcement") {
     title.textContent = `✏️ แก้ไขข่าวสาร: ${item.title}`;
     container.innerHTML = `
@@ -767,6 +839,31 @@ function initAdminApp() {
   });
 
   // 6. ADD FORM: FACULTY
+  const addFacFile = document.getElementById("input-fac-file");
+  const addFacImg = document.getElementById("input-fac-image");
+  const addFacPreview = document.getElementById("input-fac-preview");
+  const addFacStatus = document.getElementById("input-fac-upload-status");
+
+  addFacImg?.addEventListener("input", (e) => {
+    if (addFacPreview) addFacPreview.src = e.target.value || "/images/prof_sskr_1.jpg";
+  });
+
+  addFacFile?.addEventListener("change", async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (addFacStatus) addFacStatus.textContent = "⏳ กำลังอัปโหลดรูปภาพ...";
+    try {
+      const url = await uploadImageFile(file);
+      if (addFacImg) addFacImg.value = url;
+      if (addFacPreview) addFacPreview.src = url;
+      if (addFacStatus) addFacStatus.textContent = `✅ อัปโหลดสำเร็จ: ${file.name}`;
+      showToast("อัปโหลดรูปภาพสำเร็จ!");
+    } catch (err) {
+      if (addFacStatus) addFacStatus.textContent = `❌ ${err.message}`;
+      showToast(err.message || "เกิดข้อผิดพลาดในการอัปโหลด", "error");
+    }
+  });
+
   document.getElementById("form-add-faculty")?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const payload = {
@@ -774,7 +871,7 @@ function initAdminApp() {
       role: document.getElementById("input-fac-role").value.trim(),
       specialty: document.getElementById("input-fac-specialty").value.trim(),
       email: document.getElementById("input-fac-email").value.trim(),
-      image: document.getElementById("input-fac-image").value.trim() || "/images/prof_sskr_1.jpg",
+      image: document.getElementById("input-fac-image").value.trim() || "/images/oau.WEBP",
     };
 
     try {
@@ -786,7 +883,9 @@ function initAdminApp() {
       if (data.success) {
         showToast("เพิ่มข้อมูลอาจารย์สำเร็จ!");
         e.target.reset();
-        document.getElementById("input-fac-image").value = "/images/prof_sskr_1.jpg";
+        if (addFacImg) addFacImg.value = "/images/oau.WEBP";
+        if (addFacPreview) addFacPreview.src = "/images/oau.WEBP";
+        if (addFacStatus) addFacStatus.textContent = "เลือกไฟล์รูปจากเครื่องเพื่ออัปโหลดอัตโนมัติ หรือพิมพ์ URL ด้านล่าง";
         await loadAllData();
       }
     } catch {
@@ -935,7 +1034,7 @@ function initAdminApp() {
         role: document.getElementById("edit-fac-role").value.trim(),
         specialty: document.getElementById("edit-fac-specialty").value.trim(),
         email: document.getElementById("edit-fac-email").value.trim(),
-        image: document.getElementById("edit-fac-image").value.trim() || "/images/prof_sskr_1.jpg",
+        image: document.getElementById("edit-fac-image").value.trim() || "/images/oau.WEBP",
       };
     } else if (type === "announcement") {
       url = `/api/announcements/${id}`;
