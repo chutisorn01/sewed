@@ -1,3 +1,30 @@
+/**
+ * ============================================================================
+ * TECHNICAL ARCHITECTURE & SCROLLYTELLING ENGINE OVERVIEW
+ * ============================================================================
+ * 
+ * 1. SCROLL-DRIVEN VIDEO SCRUBBING ENGINE:
+ *    - Parent Container: Extended track height (540vh) for multi-stage story pacing.
+ *    - Pinned Viewport: position: sticky with 100vw x 100vh window.
+ *    - Normalization: Normalized scroll progress = -rect.top / (trackHeight - innerHeight).
+ *    - Seek Synchronization: targetTime = progress * video.duration.
+ *    - Concurrency Lock: isSeeking & pendingSeek flags prevent decode pipeline stall.
+ * 
+ * 2. DEVICE-ADAPTIVE VIDEO PIPELINE:
+ *    - Desktop: 16:9 widescreen footage (/videos/se2.mp4).
+ *    - Mobile (<= 768px): 9:16 portrait mobile footage (/videos/phonese.MP4).
+ *    - Hot-swap: On resize/orientationchange, preserves playback timeline position.
+ * 
+ * 3. LAYER TRANSITIONS (INTERPOLATION):
+ *    - Linear interpolation of opacity & translateY across progress intervals.
+ *    - Automatic pointer-events toggling (none/all) to eliminate ghost clicks.
+ * 
+ * 4. MOBILE LAYOUT ISOLATION:
+ *    - Top Bar: Clutter-free branding + CTA + hamburger toggle.
+ *    - Drawer: Off-canvas navigation containing status indicators and CMS entry points.
+ * ============================================================================
+ */
+
 import confetti from "canvas-confetti";
 import { loadInitialData, initAdminCMS, showToast } from "./cms.js";
 
