@@ -2969,31 +2969,91 @@ body {
    SCENE 4 & SCENE 5 BOTTOM LAYOUT & NEON RED HORIZONTAL DOCK
    (เอามาเรียงยาวด้านล่าง เป็นสีแดง นีออน)
    =================================================== */
-.overlay-scene-4,
-.overlay-scene-5 {
+.overlay-scene-4 {
   align-items: flex-end !important;
   padding-bottom: 2rem !important;
 }
 
-.overlay-scene-4 .hud-text-box,
-.overlay-scene-5 .hud-text-box {
+.overlay-scene-4 .hud-text-box {
   max-width: 100%;
   width: 100%;
 }
 
-.overlay-scene-4 .hud-headline,
-.overlay-scene-5 .hud-headline {
+.overlay-scene-4 .hud-headline {
   font-size: clamp(1.6rem, 2.8vw, 2.2rem);
   line-height: 1.15;
   margin-bottom: 0.35rem;
 }
 
-.overlay-scene-4 .hud-sub,
-.overlay-scene-5 .hud-sub {
+.overlay-scene-4 .hud-sub {
   font-size: clamp(0.92rem, 1.3vw, 1.05rem);
   margin-bottom: 0.65rem;
   max-width: 680px;
   line-height: 1.45;
+}
+
+/* ===================================================
+   STAGE 05 TWO-WING SPLIT HUD (LEFT & RIGHT - CENTER CLEAR FOR STUDENT)
+   (เปิดพื้นที่ตรงกลาง 100% ไม่บังตัวนักศึกษาที่กำลังเดินเข้าประตูวาร์ป)
+   =================================================== */
+.overlay-scene-5 {
+  align-items: flex-end !important;
+  padding-bottom: 2.2rem !important;
+}
+
+.stage5-hud-container {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-end !important;
+  width: 100% !important;
+  gap: 2.5rem !important;
+  pointer-events: none;
+}
+
+.stage5-left-wing {
+  max-width: 440px !important;
+  text-align: left !important;
+  margin-bottom: 0 !important;
+  pointer-events: all;
+  z-index: 10;
+}
+
+.stage5-left-wing .hud-headline {
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
+}
+
+.stage5-left-wing .hud-sub {
+  font-size: clamp(0.88rem, 1.2vw, 1.02rem);
+  color: #ffffff;
+  line-height: 1.45;
+  margin-bottom: 0;
+  text-shadow:
+    0 2px 4px #000000,
+    0 3px 10px rgba(0, 0, 0, 0.95),
+    0 0 16px rgba(0, 0, 0, 0.85);
+}
+
+.stage5-right-wing {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  text-align: right !important;
+  max-width: 420px !important;
+  pointer-events: all;
+  z-index: 10;
+  gap: 0.65rem;
+}
+
+.stage5-careers-dock {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-end !important;
+  gap: 0.5rem !important;
+  width: 100% !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /* Horizontal Bottom Dock - Stretched wide across the bottom */
@@ -3322,37 +3382,56 @@ body {
     letter-spacing: 0.5px !important;
   }
 
-  /* STAGE 05: Careers & Future */
+  /* STAGE 05: Careers & Future - Two-Wing Clear-Center Mobile Layout */
   .overlay-scene-5 {
+    align-items: stretch !important;
+    padding-top: 5.5rem !important;
     padding-bottom: 1.4rem !important;
   }
 
-  .overlay-scene-5 .hud-headline {
+  .stage5-hud-container {
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    height: 100% !important;
+    gap: 0 !important;
+  }
+
+  .stage5-left-wing {
+    max-width: 100% !important;
+    margin-bottom: auto !important;
+  }
+
+  .stage5-left-wing .hud-headline {
     font-size: clamp(1.3rem, 4.6vw, 1.7rem) !important;
     margin-bottom: 0.25rem;
   }
 
-  .overlay-scene-5 .hud-sub {
+  .stage5-left-wing .hud-sub {
     font-size: 0.82rem !important;
     line-height: 1.4;
-    margin-bottom: 0.45rem;
   }
 
-  .horizontal-bottom-dock.stage-careers-dock {
-    display: flex !important;
-    flex-wrap: wrap !important;
+  .stage5-right-wing {
+    align-items: flex-start !important;
+    text-align: left !important;
+    max-width: 100% !important;
+    margin-top: auto !important;
+    gap: 0.5rem !important;
+  }
+
+  .stage5-careers-dock {
+    justify-content: flex-start !important;
     gap: 0.38rem !important;
-    width: 100% !important;
-    margin-top: 0.35rem !important;
   }
 
-  .stage-careers-dock .dock-item.neon-red {
+  .stage5-careers-dock .dock-item.neon-red {
     padding: 0.35rem 0.65rem !important;
     gap: 0.38rem !important;
     border-radius: 8px !important;
   }
 
-  .stage-careers-dock .dock-text {
+  .stage5-careers-dock .dock-text {
     font-size: 0.72rem !important;
     letter-spacing: 0.4px !important;
   }
